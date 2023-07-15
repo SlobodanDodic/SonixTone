@@ -75,9 +75,15 @@ export const authOptions: NextAuthOptions = {
  *
  * @see https://next-auth.js.org/configuration/nextjs
  */
-export const getServerAuthSession = (ctx: {
+export const getServerAuthSession = async (ctx: {
   req: GetServerSidePropsContext["req"];
   res: GetServerSidePropsContext["res"];
 }) => {
+  // try {
+  //   return await getServerSession(ctx.req, ctx.res, authOptions);
+  // } catch (error) {
+  //   console.error("Error occurred in getServerAuthSession:", error);
+  //   throw error;
+  // }
   return getServerSession(ctx.req, ctx.res, authOptions);
 };
