@@ -12,10 +12,11 @@ export default {
       backgroundImage: {
         star: "url('/star.png')",
       },
+      container: {
+        center: true,
+      },
     },
   },
+
   plugins: [],
 } satisfies Config;
-
-
-// bg-opacity-75 bg-home bg-contain bg-right bg-no-repeat 

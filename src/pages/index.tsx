@@ -1,5 +1,6 @@
 import Head from "next/head";
-import WelcomeScreen from "@/components/WelcomeScreen";
+import Info from "@/components/Info";
+import Search from "@/components/Search";
 // import { api } from "@/utils/api";
 
 export default function Home() {
@@ -13,8 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center">
-        <WelcomeScreen />
+      <main className="container my-5 flex max-w-7xl flex-col items-center justify-center">
+        <Search />
+        <Info />
       </main>
     </>
   );

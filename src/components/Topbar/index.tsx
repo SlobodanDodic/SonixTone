@@ -16,7 +16,7 @@ export default function TopBar() {
 
   return (
     <div className="sticky top-0 z-50 bg-gray-800 text-white shadow-lg">
-      <div className="container mx-auto flex items-center justify-between px-4 py-2">
+      <div className="container flex max-w-7xl items-center justify-between px-4 py-2">
         <Link href="/" className="z-50 flex items-center">
           <img className="h-8 w-8" src="/logo.png" alt="Logo" />
         </Link>

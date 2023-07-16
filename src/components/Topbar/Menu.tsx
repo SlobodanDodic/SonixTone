@@ -49,7 +49,7 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
                         <p className="mr-3 text-xs font-medium italic text-gray-500 group-hover:text-transparent">
                           {link.description}
                         </p>
-                        <div className="transition-all duration-1000 group-hover:scale-125">
+                        <div className="transition-all duration-1000 group-hover:scale-150">
                           {link.icon}
                         </div>
                       </div>
@@ -58,15 +58,17 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
                 })}
               </div>
 
-              <div className="flex rounded-lg rounded-t border-t border-gray-600 px-2 py-5 text-center text-sm font-medium text-gray-200 hover:cursor-pointer">
+              <div className="group flex rounded-lg rounded-t border-t border-gray-600 px-2 py-5 text-center text-sm font-medium text-gray-200 hover:cursor-pointer">
                 <button
                   onClick={() => void signOut()}
-                  className="flex w-full items-center justify-center rounded-2xl border border-gray-600 p-2 hover:bg-gray-700"
+                  className="flex w-full items-center justify-center rounded-2xl border border-gray-700 p-2 hover:bg-gray-700"
                 >
-                  <RiLogoutCircleLine
-                    style={{ fontSize: "1.35rem", marginRight: "10px" }}
-                  />
-                  <p>Logout</p>
+                  <div className="flex transition-all duration-500 group-hover:scale-125">
+                    <RiLogoutCircleLine
+                      style={{ fontSize: "1.35rem", marginRight: "10px" }}
+                    />
+                    <p>Logout</p>
+                  </div>
                 </button>
               </div>
             </div>

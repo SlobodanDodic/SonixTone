@@ -1,7 +1,7 @@
 import { ImHome } from "react-icons/im";
-import { FaHeartBroken } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai";
-import { BsFillSuitHeartFill } from "react-icons/bs";
+import { MdAccountBox } from "react-icons/md";
+import { AiFillPlusSquare } from "react-icons/ai";
+import { FaArrowsSpin } from "react-icons/fa6";
 
 const linkStyle = { fontSize: "1.15rem", opacity: "67%", color: "black" };
 
@@ -13,21 +13,21 @@ export const linksData = [
     href: "/",
   },
   {
-    icon: <FaHeartBroken style={linkStyle} />,
-    title: "Ads",
-    description: "Don't need!",
+    icon: <MdAccountBox style={linkStyle} />,
+    title: "My Account",
+    description: "Fine tunings!",
     href: "/",
   },
   {
-    icon: <AiFillMessage style={linkStyle} />,
-    title: "Messages",
-    description: "Let's talk!",
+    icon: <AiFillPlusSquare style={linkStyle} />,
+    title: "Post an Ad",
+    description: "It'was mine!",
     href: "/",
   },
   {
-    icon: <BsFillSuitHeartFill style={linkStyle} />,
-    title: "I Want",
-    description: "One of these days!",
+    icon: <FaArrowsSpin style={linkStyle} />,
+    title: "Cash Flow",
+    description: "Spin around!",
     href: "/",
   },
 ];
