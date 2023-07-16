@@ -19,18 +19,10 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
             <div className="relative rounded-lg bg-gray-800 text-gray-200 shadow">
               <div className="flex items-start justify-between rounded-t p-4">
                 <div className="flex items-center space-x-4">
-                  <Image
-                    src={sessionData?.user?.image ?? "/avatar.png"}
-                    alt="Profile"
-                    className="rounded-full"
-                    width={50}
-                    height={50}
-                  />
+                  <Image src={sessionData?.user?.image ?? "/avatar.png"} alt="Profile" className="rounded-full" width={50} height={50} />
                   <div className="font-medium text-white">
                     <div>{sessionData?.user?.name}</div>
-                    <div className="text-sm text-gray-400">
-                      {sessionData?.user?.email}
-                    </div>
+                    <div className="text-sm text-gray-400">{sessionData?.user?.email}</div>
                   </div>
                 </div>
               </div>
@@ -46,12 +38,8 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
                         <Link href={link.href}>{link.title}</Link>
                       </div>
                       <div className="flex items-center justify-end">
-                        <p className="mr-3 text-xs font-medium italic text-gray-500 group-hover:text-transparent">
-                          {link.description}
-                        </p>
-                        <div className="transition-all duration-1000 group-hover:scale-150">
-                          {link.icon}
-                        </div>
+                        <p className="mr-3 text-xs font-medium italic text-gray-500 group-hover:text-transparent">{link.description}</p>
+                        <div className="transition-all duration-1000 group-hover:scale-150">{link.icon}</div>
                       </div>
                     </div>
                   );
@@ -64,9 +52,7 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
                   className="flex w-full items-center justify-center rounded-2xl border border-gray-700 p-2 hover:bg-gray-700"
                 >
                   <div className="flex transition-all duration-500 group-hover:scale-125">
-                    <RiLogoutCircleLine
-                      style={{ fontSize: "1.35rem", marginRight: "10px" }}
-                    />
+                    <RiLogoutCircleLine style={{ fontSize: "1.35rem", marginRight: "10px" }} />
                     <p>Logout</p>
                   </div>
                 </button>

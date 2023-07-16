@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container my-5 flex max-w-7xl flex-col items-center justify-center">
+      <main className="container flex min-h-screen max-w-7xl flex-col">
         <Search />
         <Info />
       </main>

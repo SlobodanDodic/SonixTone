@@ -32,21 +32,12 @@ export default function TopBar() {
           <div className="flex flex-col items-center justify-center gap-4 hover:cursor-pointer">
             {sessionData ? (
               isMenuOpen ? (
-                <CgClose
-                  onClick={toggleMenu}
-                  style={{ fontSize: "1.5rem", zIndex: 50 }}
-                />
+                <CgClose onClick={toggleMenu} style={{ fontSize: "1.5rem", zIndex: 50 }} />
               ) : (
-                <CgMenuRight
-                  onClick={toggleMenu}
-                  style={{ fontSize: "1.5rem", zIndex: 50 }}
-                />
+                <CgMenuRight onClick={toggleMenu} style={{ fontSize: "1.5rem", zIndex: 50 }} />
               )
             ) : (
-              <BiLogInCircle
-                onClick={() => void signIn()}
-                style={{ fontSize: "1.5rem" }}
-              />
+              <BiLogInCircle onClick={() => void signIn()} style={{ fontSize: "1.5rem" }} />
             )}
           </div>
         </div>
