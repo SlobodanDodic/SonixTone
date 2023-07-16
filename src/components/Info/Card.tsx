@@ -7,9 +7,9 @@ export default function Card() {
   const height = "120px";
 
   return (
-    <div className="mb-3 flex w-screen max-w-lg items-center p-2">
+    <div className="mb-5 flex w-screen max-w-lg items-center">
       <div className="flex h-28 items-center justify-between rounded shadow-lg">
-        <Image className="aspect-square rounded object-cover shadow-inner" width={110} height={110} src="/card.jpg" alt="Guitar Image" />
+        <Image className="aspect-square object-cover shadow-inner sm:rounded" width={110} height={110} src="/card.jpg" alt="Guitar Image" />
         <Link href="/" className="group mx-2 flex flex-col overflow-hidden bg-white">
           <h1 className="text-sm font-bold text-gray-900 transition-all duration-300 group-hover:tracking-wide sm:text-lg">
             Harley Benton JA-60
@@ -26,7 +26,7 @@ export default function Card() {
         <div className="flex h-full w-6 items-center justify-center rounded-r bg-red-0 px-1 text-sm text-white drop-shadow-md hover:cursor-pointer">
           <BiSolidLike className="h-5 w-5" />
         </div>
-        <div className="ml-1 flex h-full w-6 items-center justify-center rounded-r bg-gray-700 text-sm text-white drop-shadow-md hover:cursor-pointer">
+        <div className="ml-1 flex h-full w-6 items-center justify-center bg-gray-700 text-sm text-white drop-shadow-md hover:cursor-pointer sm:rounded-r">
           <div className="-rotate-90 transform text-xs tracking-widest">MORE▶</div>
         </div>
       </div>
