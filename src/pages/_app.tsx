@@ -3,7 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "@/utils/api";
 import Topbar from "@/components/Topbar";
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import { Rosario } from "next/font/google";
 import "@/styles/globals.css";
 
@@ -15,7 +15,7 @@ const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { s
       <div className={globalFont.className}>
         <Topbar />
         <Component {...pageProps} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </SessionProvider>
   );

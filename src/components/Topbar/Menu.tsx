@@ -2,7 +2,7 @@ import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import { linksData } from "./linksData";
+import { topbarLinks } from "./topbarLinks";
 
 interface MenuProps {
   isMenuOpen: boolean;
@@ -28,7 +28,7 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
               </div>
 
               <div className="flex flex-col items-center rounded-lg rounded-b border-t border-gray-600 bg-star bg-contain bg-center bg-no-repeat p-2 text-center text-sm font-medium text-gray-200">
-                {linksData.map((link, i) => {
+                {topbarLinks.map((link, i) => {
                   return (
                     <div
                       key={i}

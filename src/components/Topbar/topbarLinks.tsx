@@ -5,7 +5,7 @@ import { FaArrowsSpin } from "react-icons/fa6";
 
 const linkStyle = { fontSize: "1.15rem", opacity: "67%", color: "black" };
 
-export const linksData = [
+export const topbarLinks = [
   {
     icon: <ImHome style={linkStyle} />,
     title: "Home",
