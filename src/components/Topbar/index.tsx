@@ -5,6 +5,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import Link from "next/link";
 import Menu from "./Menu";
+import Image from "next/image";
 
 export default function TopBar() {
   const { data: sessionData } = useSession();
@@ -18,7 +19,7 @@ export default function TopBar() {
     <div className="sticky top-0 z-50 bg-gray-800 px-1 text-white shadow-lg sm:px-3">
       <div className="container flex max-w-7xl items-center justify-between px-4 py-2">
         <Link href="/" className="z-50 flex items-center">
-          <img className="h-8 w-8" src="/logo.png" alt="Logo" />
+          <Image width={32} height={32} src="/logo.png" alt="Logo" />
         </Link>
 
         <div className="flex items-center">

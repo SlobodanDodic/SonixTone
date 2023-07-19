@@ -1,8 +1,9 @@
-import React, { ButtonHTMLAttributes } from "react";
-
-interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface CustomButtonProps {
+  onClick?: () => void;
   disabled?: boolean;
-  // Any additional custom props here
+  className?: string;
+  children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({ children, disabled = false, ...props }) => {

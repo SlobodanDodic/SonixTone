@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import TabButton from "./TabButton";
-
-interface Tab {
-  label: string;
-  value: string;
-  icon: any;
-  desc: string | JSX.Element;
-}
-
-interface TabsProps {
-  tabs: Tab[];
-}
+import { TabsProps } from "@/pages/add";
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState("brand");

@@ -10,14 +10,7 @@ interface BrandProps {
   setSelectedNeckShape: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export default function Brand({
-  selectedBrand,
-  setSelectedBrand,
-  selectedModel,
-  setSelectedModel,
-  selectedNeckShape,
-  setSelectedNeckShape,
-}: BrandProps) {
+export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, setSelectedModel, setSelectedNeckShape }: BrandProps) {
   const getPopularModelsByBrand = (brandName: string) => {
     const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
     return selectedGuitar ? selectedGuitar.popularModels.map((model) => model.name) : [];
@@ -51,7 +44,7 @@ export default function Brand({
           id="guitarModels"
           title="Model≛"
           onChange={(e) => handleChange("selectedModel", e.target.value)}
-          options={getPopularModelsByBrand(selectedBrand).map((model, i) => ({
+          options={getPopularModelsByBrand(selectedBrand).map((model) => ({
             value: model,
             label: model,
           }))}
@@ -60,7 +53,7 @@ export default function Brand({
 
       {selectedModel && (
         <SelectInput
-          label={`Select a model of ${selectedBrand}™`}
+          label="Select a neck shape"
           id="neckShape"
           title="Neck shape∅"
           onChange={(e) => handleChange("selectedNeckShape", e.target.value)}

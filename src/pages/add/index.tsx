@@ -6,6 +6,17 @@ import CustomButton from "@/components/Common/CustomButton";
 import Tabs from "@/components/Add/Tabs";
 import { BsSendCheckFill, BsSendSlashFill } from "react-icons/bs";
 
+interface Tab {
+  label: string;
+  value: string;
+  icon: any;
+  desc: string | JSX.Element;
+}
+
+export interface TabsProps {
+  tabs: Tab[];
+}
+
 interface FormData {
   selectedBrand: string | null;
   selectedModel: string | null;

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BiSolidLike } from "react-icons/bi";
-import { BsEyeFill, BsStarFill } from "react-icons/bs";
 
 export default function Card() {
   const height = "120px";
