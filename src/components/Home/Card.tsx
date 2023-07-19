@@ -3,8 +3,6 @@ import Link from "next/link";
 import { BiSolidLike } from "react-icons/bi";
 
 export default function Card() {
-  const height = "120px";
-
   return (
     <div className="mb-5 flex w-screen max-w-lg items-center px-1 sm:p-0">
       <div className="flex h-28 items-center justify-between rounded shadow-lg">

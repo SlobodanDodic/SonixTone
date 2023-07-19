@@ -1,9 +1,9 @@
-import React from "react";
+import { ReactNode } from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
 
 interface TabButtonProps {
   label: string;
-  icon: any;
+  icon: ReactNode;
   active: boolean;
   onClick: () => void;
 }

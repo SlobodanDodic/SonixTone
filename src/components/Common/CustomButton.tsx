@@ -1,9 +1,11 @@
+import { ReactNode } from "react";
+
 interface CustomButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
-  children: React.ReactNode;
-  type?: "button" | "submit" | "reset";
+  children: ReactNode;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({ children, disabled = false, ...props }) => {

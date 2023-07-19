@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { PiTrademarkFill, PiListMagnifyingGlassBold } from "react-icons/pi";
 import { MdOutlinePreview } from "react-icons/md";
 import Brand from "@/components/Add/Brand";
@@ -9,8 +9,8 @@ import { BsSendCheckFill, BsSendSlashFill } from "react-icons/bs";
 interface Tab {
   label: string;
   value: string;
-  icon: any;
-  desc: string | JSX.Element;
+  icon: ReactNode;
+  desc: ReactNode;
 }
 
 export interface TabsProps {
