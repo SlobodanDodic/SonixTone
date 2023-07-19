@@ -6,9 +6,10 @@ import { topbarLinks } from "./topbarLinks";
 
 interface MenuProps {
   isMenuOpen: boolean;
+  toggleMenu: () => void;
 }
 
-const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
+const Menu: React.FC<MenuProps> = ({ isMenuOpen, toggleMenu }) => {
   const { data: sessionData } = useSession();
 
   return (
@@ -33,6 +34,7 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen }) => {
                     <div
                       key={i}
                       className="group flex w-full items-center justify-between rounded-lg px-2 py-4 hover:cursor-pointer hover:bg-gray-600/60"
+                      onClick={toggleMenu}
                     >
                       <div className="ml-2 flex items-baseline transition-all duration-500 group-hover:scale-125 group-hover:tracking-wider">
                         <Link href={link.href}>{link.title}</Link>

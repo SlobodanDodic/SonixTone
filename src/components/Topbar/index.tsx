@@ -42,7 +42,7 @@ export default function TopBar() {
           </div>
         </div>
 
-        {isMenuOpen && <Menu isMenuOpen={isMenuOpen} />}
+        {isMenuOpen && <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
       </div>
     </div>
   );
