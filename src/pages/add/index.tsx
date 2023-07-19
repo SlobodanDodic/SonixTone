@@ -1,4 +1,5 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
+import type { ReactNode } from "react";
 import { PiTrademarkFill, PiListMagnifyingGlassBold } from "react-icons/pi";
 import { MdOutlinePreview } from "react-icons/md";
 import Brand from "@/components/Add/Brand";
