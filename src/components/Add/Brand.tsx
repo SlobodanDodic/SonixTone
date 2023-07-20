@@ -8,9 +8,24 @@ interface BrandProps {
   setSelectedModel: React.Dispatch<React.SetStateAction<string | null>>;
   selectedNeckShape: string | null;
   setSelectedNeckShape: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedNeckWood: string | null;
+  setSelectedNeckWood: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedFingerboard: string | null;
+  setSelectedFingerboard: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, setSelectedModel, setSelectedNeckShape }: BrandProps) {
+export default function Brand({
+  selectedBrand,
+  setSelectedBrand,
+  selectedModel,
+  setSelectedModel,
+  selectedNeckShape,
+  setSelectedNeckShape,
+  selectedNeckWood,
+  setSelectedNeckWood,
+  selectedFingerboard,
+  setSelectedFingerboard,
+}: BrandProps) {
   const getPopularModelsByBrand = (brandName: string) => {
     const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
     return selectedGuitar ? selectedGuitar.popularModels.map((model) => model.name) : [];
@@ -25,6 +40,12 @@ export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, 
       setSelectedNeckShape(null); // Reset when the model changes
     } else if (field === "selectedNeckShape") {
       setSelectedNeckShape(value);
+      setSelectedNeckWood(null);
+    } else if (field === "selectedNeckWood") {
+      setSelectedNeckWood(value);
+      setSelectedFingerboard(null);
+    } else if (field === "selectedFingerboard") {
+      setSelectedFingerboard(value);
     }
   };
 
@@ -33,7 +54,6 @@ export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, 
       <SelectInput
         label={`Select one of ${guitars.length} guitar brands`}
         id="guitarBrands"
-        title="Brand™"
         options={guitars.map((guitar) => ({ value: guitar.name, label: guitar.name }))}
         onChange={(e) => handleChange("selectedBrand", e.target.value)}
       />
@@ -42,7 +62,6 @@ export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, 
         <SelectInput
           label={`Select a model of ${selectedBrand}™`}
           id="guitarModels"
-          title="Model≛"
           onChange={(e) => handleChange("selectedModel", e.target.value)}
           options={getPopularModelsByBrand(selectedBrand).map((model) => ({
             value: model,
@@ -53,11 +72,28 @@ export default function Brand({ selectedBrand, setSelectedBrand, selectedModel, 
 
       {selectedModel && (
         <SelectInput
-          label="Select a neck shape"
+          label={`Select a ${selectedModel}™ neck shape`}
           id="neckShape"
-          title="Neck shape∅"
           onChange={(e) => handleChange("selectedNeckShape", e.target.value)}
           options={neck.shapes.map((shape) => ({ value: shape.name, label: shape.name }))}
+        />
+      )}
+
+      {selectedNeckShape && (
+        <SelectInput
+          label={`Select a ${selectedModel}™ neck wood`}
+          id="neckWood"
+          onChange={(e) => handleChange("selectedNeckWood", e.target.value)}
+          options={neck.woods.map((wood) => ({ value: wood.name, label: wood.name }))}
+        />
+      )}
+
+      {selectedNeckWood && (
+        <SelectInput
+          label={`Select a ${selectedModel}™ fingerboard`}
+          id="neckWood"
+          onChange={(e) => handleChange("selectedFingerboard", e.target.value)}
+          options={neck.fingerboards.map((fingerboard) => ({ value: fingerboard.name, label: fingerboard.name }))}
         />
       )}
     </>

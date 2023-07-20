@@ -295,36 +295,42 @@ export const neck = {
     },
     {
       id: 2,
+      name: "Roasted Maple",
+      description:
+        "Roasted Maple is a heat-treated version of maple wood, known for its enhanced stability and resonance. The roasting process gives the wood a darker caramelized appearance and can contribute to improved sustain and a slightly warmer tone.",
+    },
+    {
+      id: 3,
       name: "Mahogany",
       description:
         "Mahogany is another common wood choice for guitar necks, especially in combination with mahogany bodies. It provides a warm, rich tone and offers a smooth, comfortable playing experience.",
     },
     {
-      id: 3,
+      id: 4,
       name: "Rosewood",
       description:
         "Rosewood is commonly used for the fretboards of guitar necks, but it is also occasionally used for the entire neck. It has a smooth, oily texture and adds warmth to the tone.",
     },
     {
-      id: 4,
+      id: 5,
       name: "Ebony",
       description:
         "Like rosewood, ebony is often used for the fretboard, but it can also be used for the neck itself. Ebony is a dense wood that offers a smooth playing surface and contributes to a bright, articulate tone.",
     },
     {
-      id: 5,
+      id: 6,
       name: "Walnut",
       description:
         "Walnut is a less common but still viable choice for guitar necks. It has a balanced tone with warm and bright qualities, and it can add visual appeal with its attractive grain patterns.",
     },
     {
-      id: 6,
+      id: 7,
       name: "Sapele",
       description:
         "Sapele is similar to mahogany in terms of its tonal qualities and appearance. It is a stable wood with a warm sound, making it a suitable choice for guitar necks.",
     },
     {
-      id: 7,
+      id: 8,
       name: "Wenge",
       description:
         "Wenge is a dense and durable wood known for its dark appearance and prominent grain patterns. It provides a clear, articulate tone and excellent sustain.",
@@ -369,3 +375,118 @@ export const neck = {
     },
   ],
 };
+
+export const pickups = [
+  {
+    id: 1,
+    name: "Single-Coil Pickup",
+    description: "Single-coil pickups produce a bright and clear tone, often used in guitars like the Fender Stratocaster.",
+  },
+  {
+    id: 2,
+    name: "Humbucker Pickup",
+    description:
+      "Humbuckers provide a thicker and warmer tone with reduced noise compared to single-coil pickups, commonly used in guitars like the Gibson Les Paul.",
+  },
+  {
+    id: 3,
+    name: "P90 Pickup",
+    description:
+      "P90 pickups are single-coil pickups with larger and wider coils, offering a punchy and slightly grittier sound. They are often used in Gibson guitars like the SG and some Fender models.",
+  },
+  {
+    id: 4,
+    name: "Filter'Tron Pickup",
+    description:
+      "Filter'Tron pickups are known for their unique twangy and clear sound, commonly found in Gretsch guitars, and associated with rockabilly and country music.",
+  },
+  {
+    id: 5,
+    name: "Soapbar Pickup",
+    description:
+      "Soapbar pickups come in both single-coil and P90 configurations and are named for their shape, which resembles a soapbar. They are found in various guitars from different manufacturers.",
+  },
+  {
+    id: 6,
+    name: "Mini-Humbucker Pickup",
+    description:
+      "Mini-humbuckers are a smaller version of the traditional humbucker, offering a blend of single-coil and humbucker tones. They are often used in guitars like the Gibson Firebird.",
+  },
+  {
+    id: 7,
+    name: "Active Pickup",
+    description:
+      "Active pickups require an onboard battery to power an internal preamp, providing a higher output and sometimes a more controlled and consistent sound. They are commonly used in guitars designed for metal and high-gain applications.",
+  },
+  {
+    id: 8,
+    name: "Lipstick Pickup",
+    description:
+      "Lipstick pickups have a unique appearance with their metal cover that resembles a tube of lipstick. They offer a bright and twangy sound and are commonly found in Danelectro guitars.",
+  },
+  {
+    id: 9,
+    name: "Wide Range Humbucker",
+    description:
+      "Wide Range Humbuckers have larger bobbins and different magnet configurations, providing a distinct and versatile sound. They are found in certain Fender guitars like the Telecaster Deluxe.",
+  },
+  {
+    id: 10,
+    name: "Wide Range Single-Coil Pickup",
+    description:
+      "Wide Range Single-Coil pickups are a variant of the original Fender single-coil, known for their unique and articulate sound. They were first introduced in the Fender Telecaster Deluxe.",
+  },
+  {
+    id: 11,
+    name: "Jazzmaster Single-Coil Pickup",
+    description:
+      "Jazzmaster Single-Coil pickups are specially designed for Fender Jazzmaster guitars, offering a bright and smooth sound with a touch of warmth.",
+  },
+  {
+    id: 12,
+    name: "Hot Rail Pickups",
+    description:
+      "Hot Rail pickups are single-coil sized humbuckers, providing a high-output and powerful tone. They are often used in guitars where routing for traditional humbuckers is not possible.",
+  },
+  {
+    id: 13,
+    name: "Noiseless Single-Coil Pickups",
+    description:
+      "Noiseless Single-Coil pickups are designed to eliminate the hum often associated with traditional single-coil pickups. They offer a clear and noise-free tone, commonly used in various guitar models.",
+  },
+];
+
+export const pickupMagnets = [
+  {
+    id: 1,
+    name: "Alnico III",
+    description: "Alnico III is the weakest of all Alnico magnets. It provides a clear, warm tone with full mids and soft highs.",
+  },
+  {
+    id: 2,
+    name: "Alnico II",
+    description: "Alnico II offers loose lows, enhanced mids, and sweet highs, providing a smooth and vintage tone.",
+  },
+  {
+    id: 3,
+    name: "Alnico IV",
+    description:
+      "Alnico IV falls between Alnico V and Alnico II in magnetism. It has tighter lows than Alnico II and more mids than Alnico V, with sweet highs.",
+  },
+  {
+    id: 4,
+    name: "Alnico V",
+    description: "Alnico V offers tight lows, cutting mids, and glassy highs, providing a balanced and versatile tone.",
+  },
+  {
+    id: 5,
+    name: "Alnico VIII",
+    description: "Alnico VIII is the loudest and strongest Alnico magnet. It offers smooth mids and treble response with a strong output.",
+  },
+  {
+    id: 6,
+    name: "Ceramic",
+    description:
+      "Ceramic magnets provide a bright tone with enhanced upper mids, punchy bass, aggressive harmonics, and compressed dynamics.",
+  },
+];

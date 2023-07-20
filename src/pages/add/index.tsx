@@ -22,6 +22,8 @@ interface FormData {
   selectedBrand: string | null;
   selectedModel: string | null;
   selectedNeckShape: string | null;
+  selectedNeckWood: string | null;
+  selectedFingerboard: string | null;
 }
 
 export default function Add() {
@@ -29,6 +31,8 @@ export default function Add() {
     selectedBrand: null,
     selectedModel: null,
     selectedNeckShape: null,
+    selectedNeckWood: null,
+    selectedFingerboard: null,
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,6 +60,10 @@ export default function Add() {
           setSelectedModel={(value) => handleChange("selectedModel", value as string)}
           selectedNeckShape={formData.selectedNeckShape}
           setSelectedNeckShape={(value) => handleChange("selectedNeckShape", value as string)}
+          selectedNeckWood={formData.selectedNeckWood}
+          setSelectedNeckWood={(value) => handleChange("selectedNeckWood", value as string)}
+          selectedFingerboard={formData.selectedFingerboard}
+          setSelectedFingerboard={(value) => handleChange("selectedFingerboard", value as string)}
         />
       ),
     },
@@ -74,15 +82,18 @@ export default function Add() {
   ];
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto mt-4 min-h-screen w-full max-w-lg">
+    <form onSubmit={handleSubmit} className="mx-auto mt-4 min-h-screen w-full max-w-xl">
       <Tabs tabs={tabs} />
-      <div className="flex">
-        <CustomButton
-          type="submit"
-          className="absolute bottom-20 right-2 rounded-full p-3 sm:bottom-10 sm:right-10"
-          disabled={formData.selectedNeckShape === null}
-        >
-          {formData.selectedNeckShape === null ? <BsSendSlashFill className="h-6 w-6" /> : <BsSendCheckFill className="h-6 w-6" />}
+      <div className="mt-7 flex w-full items-center justify-center">
+        <CustomButton type="submit" className="sticky rounded-full px-4" disabled={formData.selectedNeckShape === null}>
+          {formData.selectedNeckShape === null ? (
+            <BsSendSlashFill className="h-6 w-6" />
+          ) : (
+            <div className="flex items-center justify-center text-xs">
+              <BsSendCheckFill className="mr-2 h-6 w-6" />
+              Send
+            </div>
+          )}
         </CustomButton>
       </div>
     </form>
