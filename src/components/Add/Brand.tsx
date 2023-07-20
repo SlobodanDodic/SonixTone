@@ -23,7 +23,7 @@ export default function Brand({
   setSelectedNeckShape,
   selectedNeckWood,
   setSelectedNeckWood,
-  selectedFingerboard,
+  // selectedFingerboard,
   setSelectedFingerboard,
 }: BrandProps) {
   const getPopularModelsByBrand = (brandName: string) => {
@@ -60,7 +60,7 @@ export default function Brand({
 
       {selectedBrand && (
         <SelectInput
-          label={`Select a model of ${selectedBrand}™`}
+          label={`Select a model of ${selectedBrand ? selectedBrand + "™" : ""}`}
           id="guitarModels"
           onChange={(e) => handleChange("selectedModel", e.target.value)}
           options={getPopularModelsByBrand(selectedBrand).map((model) => ({
@@ -72,7 +72,7 @@ export default function Brand({
 
       {selectedModel && (
         <SelectInput
-          label={`Select a ${selectedModel}™ neck shape`}
+          label={`Select a ${selectedModel ? selectedModel + "™ neck shape" : ""}`}
           id="neckShape"
           onChange={(e) => handleChange("selectedNeckShape", e.target.value)}
           options={neck.shapes.map((shape) => ({ value: shape.name, label: shape.name }))}
@@ -81,7 +81,7 @@ export default function Brand({
 
       {selectedNeckShape && (
         <SelectInput
-          label={`Select a ${selectedModel}™ neck wood`}
+          label={`Select a ${selectedModel ? selectedModel + "™ neck wood" : ""}`}
           id="neckWood"
           onChange={(e) => handleChange("selectedNeckWood", e.target.value)}
           options={neck.woods.map((wood) => ({ value: wood.name, label: wood.name }))}
@@ -90,7 +90,7 @@ export default function Brand({
 
       {selectedNeckWood && (
         <SelectInput
-          label={`Select a ${selectedModel}™ fingerboard`}
+          label={`Select a ${selectedModel ? selectedModel + "™ fingerboard" : ""}`}
           id="neckWood"
           onChange={(e) => handleChange("selectedFingerboard", e.target.value)}
           options={neck.fingerboards.map((fingerboard) => ({ value: fingerboard.name, label: fingerboard.name }))}
