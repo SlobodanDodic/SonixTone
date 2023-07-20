@@ -84,9 +84,9 @@ export default function Add() {
   return (
     <form onSubmit={handleSubmit} className="mx-auto mt-4 min-h-screen w-full max-w-xl">
       <Tabs tabs={tabs} />
-      <div className="mt-7 flex w-full items-center justify-center">
-        <CustomButton type="submit" className="sticky rounded-full px-4" disabled={formData.selectedNeckShape === null}>
-          {formData.selectedNeckShape === null ? (
+      <div className="absolute bottom-0 right-0 mt-7 flex w-full items-center justify-center">
+        {/* <CustomButton type="submit" className="rounded-full px-4" disabled={formData.selectedFingerboard === null}>
+          {formData.selectedFingerboard === null ? (
             <BsSendSlashFill className="h-6 w-6" />
           ) : (
             <div className="flex items-center justify-center text-xs">
@@ -94,7 +94,7 @@ export default function Add() {
               Send
             </div>
           )}
-        </CustomButton>
+        </CustomButton> */}
       </div>
     </form>
   );

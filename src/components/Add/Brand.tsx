@@ -1,4 +1,5 @@
 import SelectInput from "../Common/SelectInput";
+import Stepper from "./Stepper";
 import { guitars, neck } from "./data";
 
 interface BrandProps {
@@ -51,8 +52,13 @@ export default function Brand({
 
   return (
     <>
+      <div className="absolute left-1/2 top-1/2 h-full -translate-x-1/2 -translate-y-1/2 transform">
+        <Stepper />
+      </div>
+
       <SelectInput
-        label={`Select one of ${guitars.length} guitar brands`}
+        title="Pick Brand"
+        label={`One of ${guitars.length} guitar brands`}
         id="guitarBrands"
         options={guitars.map((guitar) => ({ value: guitar.name, label: guitar.name }))}
         onChange={(e) => handleChange("selectedBrand", e.target.value)}
@@ -60,7 +66,8 @@ export default function Brand({
 
       {selectedBrand && (
         <SelectInput
-          label={`Select a model of ${selectedBrand ? selectedBrand + "™" : ""}`}
+          title="Pick Brand's Model"
+          label={`${selectedBrand ? selectedBrand + "'s Model" : ""}`}
           id="guitarModels"
           onChange={(e) => handleChange("selectedModel", e.target.value)}
           options={getPopularModelsByBrand(selectedBrand).map((model) => ({
@@ -72,7 +79,8 @@ export default function Brand({
 
       {selectedModel && (
         <SelectInput
-          label={`Select a ${selectedModel ? selectedModel + "™ neck shape" : ""}`}
+          title="Pick Neck Shape"
+          label={`${selectedModel ? selectedModel + "'s neck shape" : ""}`}
           id="neckShape"
           onChange={(e) => handleChange("selectedNeckShape", e.target.value)}
           options={neck.shapes.map((shape) => ({ value: shape.name, label: shape.name }))}
@@ -81,7 +89,8 @@ export default function Brand({
 
       {selectedNeckShape && (
         <SelectInput
-          label={`Select a ${selectedModel ? selectedModel + "™ neck wood" : ""}`}
+          title="Pick Neck Wood"
+          label={`${selectedModel ? selectedModel + "'s neck wood" : ""}`}
           id="neckWood"
           onChange={(e) => handleChange("selectedNeckWood", e.target.value)}
           options={neck.woods.map((wood) => ({ value: wood.name, label: wood.name }))}
@@ -90,7 +99,8 @@ export default function Brand({
 
       {selectedNeckWood && (
         <SelectInput
-          label={`Select a ${selectedModel ? selectedModel + "™ fingerboard" : ""}`}
+          title="Pick Fingerboard"
+          label={`${selectedModel ? selectedModel + "'s fingerboard" : ""}`}
           id="neckWood"
           onChange={(e) => handleChange("selectedFingerboard", e.target.value)}
           options={neck.fingerboards.map((fingerboard) => ({ value: fingerboard.name, label: fingerboard.name }))}
