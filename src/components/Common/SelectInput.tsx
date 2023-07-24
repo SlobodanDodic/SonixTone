@@ -4,14 +4,15 @@ interface Option {
 }
 
 interface SelectInputProps {
-  title: string;
+  title?: string;
   label: string;
+  defaultValue: string;
   id: string;
   options: Option[];
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const SelectInput: React.FC<SelectInputProps> = ({ title, label, id, options, onChange }) => {
+const SelectInput: React.FC<SelectInputProps> = ({ title, label, id, options, defaultValue, onChange }) => {
   return (
     <div className="mt-9 flex h-11">
       <div className="flex w-1/2 flex-col items-end justify-end pr-7 font-semibold sm:mx-10">
@@ -24,11 +25,12 @@ const SelectInput: React.FC<SelectInputProps> = ({ title, label, id, options, on
       <div className="flex w-1/2 flex-col pl-7 sm:mx-10">
         <select
           id={id}
-          defaultValue="Please select"
+          defaultValue={defaultValue}
+          // defaultValue="Please select"
           className="rounded border border-gray-300 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-600 focus:outline-none"
           onChange={onChange}
         >
-          <option value="">Please select</option>
+          <option value="">{defaultValue}</option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

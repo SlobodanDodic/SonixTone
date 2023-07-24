@@ -3,9 +3,8 @@ import type { ReactNode } from "react";
 import { PiTrademarkFill, PiListMagnifyingGlassBold } from "react-icons/pi";
 import { MdOutlinePreview } from "react-icons/md";
 import Brand from "@/components/Add/Brand";
-import CustomButton from "@/components/Common/CustomButton";
 import Tabs from "@/components/Add/Tabs";
-import { BsSendCheckFill, BsSendSlashFill } from "react-icons/bs";
+import Preview from "@/components/Add/Preview";
 
 interface Tab {
   label: string;
@@ -24,6 +23,7 @@ interface FormData {
   selectedNeckShape: string | null;
   selectedNeckWood: string | null;
   selectedFingerboard: string | null;
+  selectedPickups: string | null;
 }
 
 export default function Add() {
@@ -33,18 +33,19 @@ export default function Add() {
     selectedNeckShape: null,
     selectedNeckWood: null,
     selectedFingerboard: null,
+    selectedPickups: null,
   });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
-  };
 
   const handleChange = (field: keyof FormData, value: string | null) => {
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,
     }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
   };
 
   const tabs = [
@@ -64,6 +65,8 @@ export default function Add() {
           setSelectedNeckWood={(value) => handleChange("selectedNeckWood", value as string)}
           selectedFingerboard={formData.selectedFingerboard}
           setSelectedFingerboard={(value) => handleChange("selectedFingerboard", value as string)}
+          selectedPickups={formData.selectedPickups}
+          setSelectedPickups={(value) => handleChange("selectedPickups", value as string)}
         />
       ),
     },
@@ -77,25 +80,14 @@ export default function Add() {
       label: "Preview",
       value: "preview",
       icon: <MdOutlinePreview style={{ height: "1.15rem", width: "1.15rem" }} />,
-      desc: `We're not always in the position that we want to be at. We're constantly growing. We're constantly making mistakes. We're constantly trying to express ourselves and actualize our dreams.`,
+      desc: <Preview selectedFingerboard={formData.selectedFingerboard} />,
     },
   ];
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto mt-4 min-h-screen w-full max-w-xl">
       <Tabs tabs={tabs} />
-      <div className="absolute bottom-0 right-0 mt-7 flex w-full items-center justify-center">
-        {/* <CustomButton type="submit" className="rounded-full px-4" disabled={formData.selectedFingerboard === null}>
-          {formData.selectedFingerboard === null ? (
-            <BsSendSlashFill className="h-6 w-6" />
-          ) : (
-            <div className="flex items-center justify-center text-xs">
-              <BsSendCheckFill className="mr-2 h-6 w-6" />
-              Send
-            </div>
-          )}
-        </CustomButton> */}
-      </div>
+      <div className="absolute bottom-0 right-0 mt-7 flex w-full items-center justify-center"></div>
     </form>
   );
 }

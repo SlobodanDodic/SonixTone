@@ -1,6 +1,6 @@
 import SelectInput from "../Common/SelectInput";
 import Stepper from "./Stepper";
-import { guitars, neck } from "./data";
+import { guitars, neck, pickups } from "./data";
 
 interface BrandProps {
   selectedBrand: string | null;
@@ -13,6 +13,8 @@ interface BrandProps {
   setSelectedNeckWood: React.Dispatch<React.SetStateAction<string | null>>;
   selectedFingerboard: string | null;
   setSelectedFingerboard: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedPickups: string | null;
+  setSelectedPickups: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export default function Brand({
@@ -24,8 +26,10 @@ export default function Brand({
   setSelectedNeckShape,
   selectedNeckWood,
   setSelectedNeckWood,
-  // selectedFingerboard,
+  selectedFingerboard,
   setSelectedFingerboard,
+  selectedPickups,
+  setSelectedPickups,
 }: BrandProps) {
   const getPopularModelsByBrand = (brandName: string) => {
     const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
@@ -35,31 +39,37 @@ export default function Brand({
   const handleChange = (field: keyof BrandProps, value: string | null) => {
     if (field === "selectedBrand") {
       setSelectedBrand(value);
-      setSelectedModel(null); // Reset when the brand changes
     } else if (field === "selectedModel") {
       setSelectedModel(value);
-      setSelectedNeckShape(null); // Reset when the model changes
     } else if (field === "selectedNeckShape") {
       setSelectedNeckShape(value);
-      setSelectedNeckWood(null);
     } else if (field === "selectedNeckWood") {
       setSelectedNeckWood(value);
-      setSelectedFingerboard(null);
     } else if (field === "selectedFingerboard") {
       setSelectedFingerboard(value);
+    } else if (field === "selectedPickups") {
+      setSelectedPickups(value);
     }
   };
 
   return (
     <>
       <div className="absolute left-1/2 top-1/2 h-full -translate-x-1/2 -translate-y-1/2 transform">
-        <Stepper />
+        <Stepper
+          selectedBrand={selectedBrand}
+          selectedModel={selectedModel}
+          selectedNeckShape={selectedNeckShape}
+          selectedNeckWood={selectedNeckWood}
+          selectedFingerboard={selectedFingerboard}
+          selectedPickups={selectedPickups}
+        />
       </div>
 
       <SelectInput
         title="Pick Brand"
         label={`One of ${guitars.length} guitar brands`}
         id="guitarBrands"
+        defaultValue="Select Brand"
         options={guitars.map((guitar) => ({ value: guitar.name, label: guitar.name }))}
         onChange={(e) => handleChange("selectedBrand", e.target.value)}
       />
@@ -69,6 +79,7 @@ export default function Brand({
           title="Pick Brand's Model"
           label={`${selectedBrand ? selectedBrand + "'s Model" : ""}`}
           id="guitarModels"
+          defaultValue="Select Model"
           onChange={(e) => handleChange("selectedModel", e.target.value)}
           options={getPopularModelsByBrand(selectedBrand).map((model) => ({
             value: model,
@@ -82,6 +93,7 @@ export default function Brand({
           title="Pick Neck Shape"
           label={`${selectedModel ? selectedModel + "'s neck shape" : ""}`}
           id="neckShape"
+          defaultValue="Select Shape"
           onChange={(e) => handleChange("selectedNeckShape", e.target.value)}
           options={neck.shapes.map((shape) => ({ value: shape.name, label: shape.name }))}
         />
@@ -92,6 +104,7 @@ export default function Brand({
           title="Pick Neck Wood"
           label={`${selectedModel ? selectedModel + "'s neck wood" : ""}`}
           id="neckWood"
+          defaultValue="Select Wood"
           onChange={(e) => handleChange("selectedNeckWood", e.target.value)}
           options={neck.woods.map((wood) => ({ value: wood.name, label: wood.name }))}
         />
@@ -101,10 +114,72 @@ export default function Brand({
         <SelectInput
           title="Pick Fingerboard"
           label={`${selectedModel ? selectedModel + "'s fingerboard" : ""}`}
-          id="neckWood"
+          id="fingerboard"
+          defaultValue="Select Fingerboard"
           onChange={(e) => handleChange("selectedFingerboard", e.target.value)}
           options={neck.fingerboards.map((fingerboard) => ({ value: fingerboard.name, label: fingerboard.name }))}
         />
+      )}
+
+      {selectedFingerboard && (
+        <div className="mt-9 flex h-11">
+          <div className="flex w-1/2 flex-col items-end justify-end pr-7 font-semibold sm:mx-10">
+            <p className="text-end text-sm text-gray-600">Pickups configuration</p>
+            <label className="p-1 text-end text-xs font-semibold text-gray-400">{`${
+              selectedModel ? selectedModel + "'s pickups" : ""
+            }`}</label>
+          </div>
+
+          <div className="flex w-1/2 flex-col pl-7 sm:mx-10">
+            <div className="mb-3 mr-4 flex items-center">
+              <input
+                id="stock-checkbox"
+                type="radio"
+                value="Stock Pickups"
+                checked={selectedPickups === "Stock Pickups"}
+                onChange={(e) => handleChange("selectedPickups", e.target.value)}
+                className="h-4 w-4 rounded focus:outline-none"
+              />
+              <label htmlFor="stock-checkbox" className="ml-2 text-xs font-medium text-gray-600">
+                Stock Pickups
+              </label>
+            </div>
+            <div className="mb-3 mr-4 flex items-center">
+              <input
+                id="custom-checkbox"
+                type="radio"
+                value="Custom Pickups"
+                checked={selectedPickups === "Custom Pickups"}
+                onChange={(e) => handleChange("selectedPickups", e.target.value)}
+                className="h-4 w-4 rounded focus:outline-none"
+              />
+              <label htmlFor="custom-checkbox" className="ml-2 text-xs font-medium text-gray-600">
+                Custom Pickups
+              </label>
+            </div>
+          </div>
+          {/* <div className="flex w-1/2 flex-col items-end justify-end pr-7 font-semibold sm:mx-10">
+            <p className="text-end text-sm text-gray-600">Pickups configuration</p>
+            <label className="p-1 text-end text-xs font-semibold text-gray-400">{`${
+              selectedModel ? selectedModel + "'s pickups" : ""
+            }`}</label>
+          </div>
+
+          <div className="flex w-1/2 flex-col pl-7 sm:mx-10">
+            <div className="mb-3 mr-4 flex items-center">
+              <input id="stock-checkbox" type="checkbox" value="" className="h-4 w-4 rounded focus:outline-none" />
+              <label htmlFor="stock-checkbox" className="ml-2 text-xs font-medium text-gray-600">
+                Stock Pickups
+              </label>
+            </div>
+            <div className="mb-3 mr-4 flex items-center">
+              <input id="custom-checkbox" type="checkbox" value="" className="h-4 w-4 rounded focus:outline-none" />
+              <label htmlFor="custom-checkbox" className="ml-2 text-xs font-medium text-gray-600">
+                Custom Pickups
+              </label>
+            </div>
+          </div> */}
+        </div>
       )}
     </>
   );

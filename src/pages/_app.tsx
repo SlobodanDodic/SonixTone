@@ -4,20 +4,25 @@ import { type AppType } from "next/app";
 import { api } from "@/utils/api";
 import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
-import { Rosario } from "next/font/google";
 import "@/styles/globals.css";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
+
+import { Rosario } from "next/font/google";
 const globalFont = Rosario({ subsets: ["latin"], display: "swap" });
 
 const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
-    <SessionProvider session={session}>
-      <div className={globalFont.className}>
-        <Topbar />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
-    </SessionProvider>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider session={session}>
+        <div className={globalFont.className}>
+          <Topbar />
+          <Component {...pageProps} />
+          <Footer />
+        </div>
+      </SessionProvider>
+    </QueryClientProvider>
   );
 };
 
