@@ -1,21 +1,7 @@
+import type { BrandProps } from "@/types";
 import SelectInput from "../Common/SelectInput";
 import Stepper from "./Stepper";
-import { guitars, neck, pickups } from "./data";
-
-interface BrandProps {
-  selectedBrand: string | null;
-  setSelectedBrand: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedModel: string | null;
-  setSelectedModel: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedNeckShape: string | null;
-  setSelectedNeckShape: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedNeckWood: string | null;
-  setSelectedNeckWood: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedFingerboard: string | null;
-  setSelectedFingerboard: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedPickups: string | null;
-  setSelectedPickups: React.Dispatch<React.SetStateAction<string | null>>;
-}
+import { guitars, neck } from "./data";
 
 export default function Brand({
   selectedBrand,
@@ -39,14 +25,29 @@ export default function Brand({
   const handleChange = (field: keyof BrandProps, value: string | null) => {
     if (field === "selectedBrand") {
       setSelectedBrand(value);
+      setSelectedModel(null);
+      setSelectedNeckShape(null);
+      setSelectedNeckWood(null);
+      setSelectedFingerboard(null);
+      setSelectedPickups(null);
     } else if (field === "selectedModel") {
       setSelectedModel(value);
+      setSelectedNeckShape(null);
+      setSelectedNeckWood(null);
+      setSelectedFingerboard(null);
+      setSelectedPickups(null);
     } else if (field === "selectedNeckShape") {
       setSelectedNeckShape(value);
+      setSelectedNeckWood(null);
+      setSelectedFingerboard(null);
+      setSelectedPickups(null);
     } else if (field === "selectedNeckWood") {
       setSelectedNeckWood(value);
+      setSelectedFingerboard(null);
+      setSelectedPickups(null);
     } else if (field === "selectedFingerboard") {
       setSelectedFingerboard(value);
+      setSelectedPickups(null);
     } else if (field === "selectedPickups") {
       setSelectedPickups(value);
     }
@@ -158,29 +159,10 @@ export default function Brand({
               </label>
             </div>
           </div>
-          {/* <div className="flex w-1/2 flex-col items-end justify-end pr-7 font-semibold sm:mx-10">
-            <p className="text-end text-sm text-gray-600">Pickups configuration</p>
-            <label className="p-1 text-end text-xs font-semibold text-gray-400">{`${
-              selectedModel ? selectedModel + "'s pickups" : ""
-            }`}</label>
-          </div>
-
-          <div className="flex w-1/2 flex-col pl-7 sm:mx-10">
-            <div className="mb-3 mr-4 flex items-center">
-              <input id="stock-checkbox" type="checkbox" value="" className="h-4 w-4 rounded focus:outline-none" />
-              <label htmlFor="stock-checkbox" className="ml-2 text-xs font-medium text-gray-600">
-                Stock Pickups
-              </label>
-            </div>
-            <div className="mb-3 mr-4 flex items-center">
-              <input id="custom-checkbox" type="checkbox" value="" className="h-4 w-4 rounded focus:outline-none" />
-              <label htmlFor="custom-checkbox" className="ml-2 text-xs font-medium text-gray-600">
-                Custom Pickups
-              </label>
-            </div>
-          </div> */}
         </div>
       )}
+
+      {selectedPickups && <div className="mt-9 flex h-11 items-center justify-center">NEXT</div>}
     </>
   );
 }

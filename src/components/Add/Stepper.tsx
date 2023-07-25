@@ -5,22 +5,7 @@ import { RiTrademarkLine } from "react-icons/ri";
 import { GiGuitarHead } from "react-icons/gi";
 import { IoMdRose } from "react-icons/io";
 import { TbCircleHalfVertical } from "react-icons/tb";
-
-interface Step {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-}
-
-interface StepperProps {
-  selectedBrand: string | null;
-  selectedModel: string | null;
-  selectedNeckShape: string | null;
-  selectedNeckWood: string | null;
-  selectedFingerboard: string | null;
-  selectedPickups: string | null;
-}
+import type { Step, StepperProps } from "@/types";
 
 const Stepper: React.FC<StepperProps> = ({
   selectedBrand,

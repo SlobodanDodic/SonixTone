@@ -1,30 +1,10 @@
 import React, { useState } from "react";
-import type { ReactNode } from "react";
 import { PiTrademarkFill, PiListMagnifyingGlassBold } from "react-icons/pi";
 import { MdOutlinePreview } from "react-icons/md";
 import Brand from "@/components/Add/Brand";
 import Tabs from "@/components/Add/Tabs";
 import Preview from "@/components/Add/Preview";
-
-interface Tab {
-  label: string;
-  value: string;
-  icon: ReactNode;
-  desc: ReactNode;
-}
-
-export interface TabsProps {
-  tabs: Tab[];
-}
-
-interface FormData {
-  selectedBrand: string | null;
-  selectedModel: string | null;
-  selectedNeckShape: string | null;
-  selectedNeckWood: string | null;
-  selectedFingerboard: string | null;
-  selectedPickups: string | null;
-}
+import { FormData } from "@/types";
 
 export default function Add() {
   const [formData, setFormData] = useState<FormData>({
@@ -55,17 +35,12 @@ export default function Add() {
       icon: <PiTrademarkFill style={{ height: "1.15rem", width: "1.15rem" }} />,
       desc: (
         <Brand
-          selectedBrand={formData.selectedBrand}
+          {...formData}
           setSelectedBrand={(value) => handleChange("selectedBrand", value as string)}
-          selectedModel={formData.selectedModel}
           setSelectedModel={(value) => handleChange("selectedModel", value as string)}
-          selectedNeckShape={formData.selectedNeckShape}
           setSelectedNeckShape={(value) => handleChange("selectedNeckShape", value as string)}
-          selectedNeckWood={formData.selectedNeckWood}
           setSelectedNeckWood={(value) => handleChange("selectedNeckWood", value as string)}
-          selectedFingerboard={formData.selectedFingerboard}
           setSelectedFingerboard={(value) => handleChange("selectedFingerboard", value as string)}
-          selectedPickups={formData.selectedPickups}
           setSelectedPickups={(value) => handleChange("selectedPickups", value as string)}
         />
       ),
@@ -90,4 +65,21 @@ export default function Add() {
       <div className="absolute bottom-0 right-0 mt-7 flex w-full items-center justify-center"></div>
     </form>
   );
+}
+
+{
+  /* <Brand
+selectedBrand={formData.selectedBrand}
+setSelectedBrand={(value) => handleChange("selectedBrand", value as string)}
+selectedModel={formData.selectedModel}
+setSelectedModel={(value) => handleChange("selectedModel", value as string)}
+selectedNeckShape={formData.selectedNeckShape}
+setSelectedNeckShape={(value) => handleChange("selectedNeckShape", value as string)}
+selectedNeckWood={formData.selectedNeckWood}
+setSelectedNeckWood={(value) => handleChange("selectedNeckWood", value as string)}
+selectedFingerboard={formData.selectedFingerboard}
+setSelectedFingerboard={(value) => handleChange("selectedFingerboard", value as string)}
+selectedPickups={formData.selectedPickups}
+setSelectedPickups={(value) => handleChange("selectedPickups", value as string)}
+/> */
 }

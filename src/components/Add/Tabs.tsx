@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TabButton from "./TabButton";
-import type { TabsProps } from "@/pages/add";
+import type { TabsProps } from "@/types";
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState("brand");
