@@ -1,6 +1,15 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import { UseFormRegister } from "react-hook-form";
 
+// Custom Button:
+export interface CustomButtonProps {
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
+  children: ReactNode;
+  type?: "button" | "submit" | "reset" | undefined;
+}
+
 // Component FormFieldsData:
 export interface FormFieldsDataProps {
   children: (formFields: any) => ReactNode;
