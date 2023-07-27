@@ -15,9 +15,15 @@ export const initialData = {
 
 const FormContext = createContext<FormContextProps>({
   formData: initialData,
-  onHandleBack: (): void => {},
-  onHandleNext: (): void => {},
-  setFormData: (): void => {},
+  onHandleBack: (): void => {
+    // now it's not empty
+  },
+  onHandleNext: (): void => {
+    // now it's not empty
+  },
+  setFormData: (): void => {
+    // now it's not empty
+  },
   step: 0,
 });
 
