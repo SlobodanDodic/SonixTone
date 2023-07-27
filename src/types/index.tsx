@@ -1,4 +1,61 @@
-import type { ReactNode } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
+import { UseFormRegister } from "react-hook-form";
+
+// Component FormFieldsData:
+export interface FormFieldsDataProps {
+  children: (formFields: any) => ReactNode;
+}
+
+// Component FormContext:
+export interface FormContextProps {
+  formData: any;
+  setFormData: Dispatch<SetStateAction<any>>;
+  onHandleBack: () => void;
+  onHandleNext: () => void;
+  step: number;
+}
+
+export interface ChildrenProps {
+  children: ReactNode;
+}
+
+// Component SelectInput
+export interface FormDataProps {
+  selectedBrand: string;
+  selectedModel: string;
+  selectedNeckShape: string;
+  selectedNeckWood: string;
+  selectedFingerboard: string;
+  selectedPickups: string;
+  email: string;
+}
+
+export interface Option {
+  value: string;
+  label: string;
+}
+
+export interface SelectInputProps {
+  title?: string;
+  label: string;
+  inputId: keyof FormDataProps;
+  register: UseFormRegister<any>;
+  options: Option[];
+  defaultValue: string;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  setFormData?: (data: FormDataProps) => void;
+}
+
+// Component StepIcons
+
+export interface Step {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+}
+
+// older versions
 
 export interface Tab {
   label: string;
@@ -35,13 +92,6 @@ export interface BrandProps {
   setSelectedPickups: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export interface Step {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-}
-
 export interface StepperProps {
   selectedBrand: string | null;
   selectedModel: string | null;
@@ -49,18 +99,4 @@ export interface StepperProps {
   selectedNeckWood: string | null;
   selectedFingerboard: string | null;
   selectedPickups: string | null;
-}
-
-export interface Option {
-  value: string;
-  label: string;
-}
-
-export interface SelectInputProps {
-  title?: string;
-  label: string;
-  defaultValue: string;
-  id: string;
-  options: Option[];
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
