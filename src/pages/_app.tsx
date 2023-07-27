@@ -1,3 +1,4 @@
+import { FormProvider } from "@/components/AddGuitar/FormContext";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
@@ -17,9 +18,11 @@ const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { s
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
         <div className={globalFont.className}>
-          <Topbar />
-          <Component {...pageProps} />
-          <Footer />
+          <FormProvider>
+            <Topbar />
+            <Component {...pageProps} />
+            <Footer />
+          </FormProvider>
         </div>
       </SessionProvider>
     </QueryClientProvider>
