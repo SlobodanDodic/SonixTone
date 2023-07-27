@@ -4,32 +4,29 @@ import CustomButton from "@/components/Common/CustomButton";
 import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import SelectInput from "../SelectInput";
 import StepIcons from "../StepIcons";
-import type { FormDataProps } from "@/types";
+import type { FormDataStepOneProps, FormField, FormFieldProps } from "@/types";
 import { FormFieldsData } from "../FormFieldsData";
 
 export function Brand() {
   const { onHandleNext, setFormData, formData } = useFormState();
-  const { register, handleSubmit } = useForm<FormDataProps>({
+  const { register, handleSubmit } = useForm<FormDataStepOneProps>({
     defaultValues: formData ?? {},
   });
 
-  const onHandleFormSubmit = (data: FormDataProps) => {
+  const onHandleFormSubmit = (data: FormDataStepOneProps) => {
     setFormData(data);
     onHandleNext();
   };
 
-  // const isSelectionComplete = Object.keys(formData).every((key) => {
-  //   return !!formData[key as keyof FormDataProps];
-  // });
-
   return (
     <div className="pt-12">
       <FormFieldsData>
-        {(formFields: any) => (
+        {(formFields: FormFieldProps[]) => (
           <form className="flex flex-col font-bold" onSubmit={handleSubmit(onHandleFormSubmit)}>
-            {formFields.map((field: any, index: any) => {
+            {formFields?.map((field: FormField, index: number) => {
               const arePreviousFieldsSelected =
-                index === 0 || formFields.slice(0, index).every((prevField: any) => formData[prevField.inputId]);
+                index === 0 ||
+                formFields?.slice(0, index).every((prevField: FormField) => formData[prevField.inputId as keyof FormDataStepOneProps]);
 
               if (arePreviousFieldsSelected || !field.dependencies) {
                 return (
@@ -37,7 +34,7 @@ export function Brand() {
                     key={index}
                     title={field.title}
                     label={field.label}
-                    inputId={field.inputId as keyof FormDataProps}
+                    inputId={field.inputId as keyof FormDataStepOneProps}
                     defaultValue={field.defaultValue}
                     register={register}
                     options={field.options}

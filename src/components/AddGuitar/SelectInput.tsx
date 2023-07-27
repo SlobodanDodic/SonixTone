@@ -1,4 +1,4 @@
-import type { FormDataProps, SelectInputProps } from "@/types";
+import type { FormDataStepOneProps, SelectInputProps } from "@/types";
 import { useFormState } from "./FormContext";
 
 const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaultValue, register, options }) => {
@@ -9,14 +9,14 @@ const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaul
     const newValue = e.target.value;
 
     // Create a new object to store the updated form data
-    const updatedFormData: FormDataProps = { ...formData };
+    const updatedFormData: FormDataStepOneProps = { ...formData };
 
     // Reset all fields after the current inputId
     let reset = false;
     for (const key in updatedFormData) {
       if (reset) {
         // Use type assertion to index the object using string key
-        updatedFormData[key as keyof FormDataProps] = "";
+        updatedFormData[key as keyof FormDataStepOneProps] = "";
       }
       if (key === inputId) {
         reset = true;

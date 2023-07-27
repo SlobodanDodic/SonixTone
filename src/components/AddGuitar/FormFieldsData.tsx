@@ -1,6 +1,6 @@
+import type { FormFieldsDataProps, FormFieldsDataType } from "@/types";
 import { useFormState } from "./FormContext";
 import { guitars, neck, pickupOptions } from "./data";
-import type { FormFieldsDataProps } from "@/types";
 
 const getPopularModelsByBrand = (brandName: string) => {
   const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
@@ -9,9 +9,10 @@ const getPopularModelsByBrand = (brandName: string) => {
 
 export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
   const { formData } = useFormState();
-  const { selectedBrand, selectedModel } = formData ?? {};
+  const selectedBrand = formData?.selectedBrand ?? "";
+  const selectedModel = formData?.selectedModel ?? "";
 
-  const formFields = [
+  const formFields: FormFieldsDataType = [
     {
       title: "Pick Brand",
       label: `One of ${guitars.length} guitar brands`,
@@ -21,7 +22,7 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
     },
     {
       title: "Pick Brand's Model",
-      label: `${selectedBrand}'s Model`,
+      label: `${selectedBrand.toString()}'s Model`,
       inputId: "selectedModel",
       defaultValue: "Select Model",
       options: getPopularModelsByBrand(selectedBrand).map((model) => ({ value: model, label: model })),
@@ -29,7 +30,7 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
     },
     {
       title: "Pick Neck Shape",
-      label: `${selectedBrand}'s Model`,
+      label: `${selectedBrand.toString()}'s Model`,
       inputId: "selectedNeckShape",
       defaultValue: "Select Shape",
       options: neck.shapes.map((shape) => ({ value: shape.name, label: shape.name })),
@@ -37,7 +38,7 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
     },
     {
       title: "Pick Neck Wood",
-      label: `${selectedModel}'s neck wood`,
+      label: `${selectedModel.toString()}'s neck wood`,
       inputId: "selectedNeckWood",
       defaultValue: "Select Wood",
       options: neck.woods.map((wood) => ({ value: wood.name, label: wood.name })),
@@ -45,7 +46,7 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
     },
     {
       title: "Pick Fingerboard",
-      label: `${selectedModel}'s fingerboard`,
+      label: `${selectedModel.toString()}'s fingerboard`,
       inputId: "selectedFingerboard",
       defaultValue: "Select Fingerboard",
       options: neck.fingerboards.map((fingerboard) => ({ value: fingerboard.name, label: fingerboard.name })),
@@ -53,7 +54,7 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
     },
     {
       title: "Pickups configuration",
-      label: `${selectedModel}'s pickups`,
+      label: `${selectedModel.toString()}'s pickups`,
       inputId: "selectedPickups",
       defaultValue: "Select Pickups",
       options: pickupOptions.map((pickup) => ({ value: pickup.name, label: pickup.name })),
