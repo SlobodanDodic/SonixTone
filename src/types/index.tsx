@@ -10,6 +10,7 @@ export interface AllFormDataProps {
   selectedFingerboard: string;
   selectedPickups: string;
   email: string;
+  password: string;
 }
 
 // Component SelectInput:

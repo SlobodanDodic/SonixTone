@@ -10,6 +10,7 @@ export const initialData = {
   selectedPickups: "",
 
   email: "",
+  password: "",
 };
 
 const FormContext = createContext<FormContextProps>({

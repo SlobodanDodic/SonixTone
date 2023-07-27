@@ -1,20 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useFormState } from "../FormContext";
 import { useState } from "react";
-
-type TFormValues = {
-  password: string;
-  confirmPassword: string;
-};
+import type { AllFormDataProps } from "@/types";
 
 export function Preview() {
   const [isCreated, setCreated] = useState(false);
   const { setFormData, formData, onHandleBack } = useFormState();
-  const { register, handleSubmit } = useForm<TFormValues>({
-    defaultValues: formData,
+  const { register, handleSubmit } = useForm<AllFormDataProps>({
+    defaultValues: formData ?? {},
   });
 
-  const onHandleFormSubmit = (data: TFormValues) => {
+  const onHandleFormSubmit = (data: AllFormDataProps) => {
     setFormData((prev: any) => ({ ...prev, ...data }));
     setCreated(true);
   };
