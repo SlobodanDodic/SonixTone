@@ -29,7 +29,7 @@ export function Brand() {
           <form className="flex flex-col font-bold" onSubmit={handleSubmit(onSubmit)}>
             {formFields?.map((field: FormFieldProps, index: number) => {
               const arePreviousFieldsSelected =
-                index === 0 || formFields?.slice(0, index).every((prevField) => formData[prevField.inputId as keyof FormDataStepOneProps]);
+                index === 0 || formFields?.slice(0, index).every((prevField) => formData[prevField.inputId]);
 
               if (arePreviousFieldsSelected || !field.dependencies) {
                 return (
