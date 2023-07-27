@@ -38,7 +38,7 @@ export interface SelectInputProps {
 //   setFormData?: (data: FormDataProps) => void;
 // }
 
-// Component Brand:
+// Component Brand & Component FormFieldsData::
 export interface FormDataStepOneProps {
   selectedBrand: string;
   selectedModel: string;
@@ -57,17 +57,7 @@ export interface FormFieldProps {
   dependencies?: Array<keyof FormDataStepOneProps>;
 }
 
-// Component FormFieldsData:
-export interface FormField {
-  title: string;
-  label: string;
-  inputId: keyof FormDataStepOneProps;
-  defaultValue: string;
-  options: { value: string; label: string }[];
-  dependencies?: (keyof FormDataStepOneProps)[];
-}
-
-export type FormFieldsDataType = FormField[];
+export type FormFieldsDataType = FormFieldProps[];
 
 export interface FormFieldsDataProps {
   children: (formFields: any) => ReactNode;

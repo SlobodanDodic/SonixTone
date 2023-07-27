@@ -4,7 +4,7 @@ import CustomButton from "@/components/Common/CustomButton";
 import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import SelectInput from "../SelectInput";
 import StepIcons from "../StepIcons";
-import type { FormDataStepOneProps, FormField, FormFieldProps } from "@/types";
+import type { FormDataStepOneProps, FormFieldProps } from "@/types";
 import { FormFieldsData } from "../FormFieldsData";
 
 export function Brand() {
@@ -18,15 +18,18 @@ export function Brand() {
     onHandleNext();
   };
 
+  const onSubmit = (data: FormDataStepOneProps) => {
+    onHandleFormSubmit(data);
+  };
+
   return (
     <div className="pt-12">
       <FormFieldsData>
         {(formFields: FormFieldProps[]) => (
-          <form className="flex flex-col font-bold" onSubmit={handleSubmit(onHandleFormSubmit)}>
-            {formFields?.map((field: FormField, index: number) => {
+          <form className="flex flex-col font-bold" onSubmit={handleSubmit(onSubmit)}>
+            {formFields?.map((field: FormFieldProps, index: number) => {
               const arePreviousFieldsSelected =
-                index === 0 ||
-                formFields?.slice(0, index).every((prevField: FormField) => formData[prevField.inputId as keyof FormDataStepOneProps]);
+                index === 0 || formFields?.slice(0, index).every((prevField) => formData[prevField.inputId as keyof FormDataStepOneProps]);
 
               if (arePreviousFieldsSelected || !field.dependencies) {
                 return (
@@ -34,7 +37,7 @@ export function Brand() {
                     key={index}
                     title={field.title}
                     label={field.label}
-                    inputId={field.inputId as keyof FormDataStepOneProps}
+                    inputId={field.inputId}
                     defaultValue={field.defaultValue}
                     register={register}
                     options={field.options}
