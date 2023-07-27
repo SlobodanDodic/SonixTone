@@ -11,7 +11,7 @@ export function Preview() {
   });
 
   const onHandleFormSubmit = (data: AllFormDataProps) => {
-    setFormData((prev: any) => ({ ...prev, ...data }));
+    setFormData((prev: AllFormDataProps) => ({ ...prev, ...data }));
     setCreated(true);
   };
 

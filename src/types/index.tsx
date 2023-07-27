@@ -1,5 +1,5 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import { UseFormRegister } from "react-hook-form";
+import type { UseFormRegister } from "react-hook-form";
 
 // All inputs in form:
 export interface AllFormDataProps {
@@ -24,7 +24,7 @@ export interface SelectInputProps {
   label: string;
   inputId: keyof FormDataStepOneProps;
   defaultValue: string;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<FormDataStepOneProps>;
   options: Option[];
 }
 // export interface SelectInputProps {
@@ -60,7 +60,7 @@ export interface FormFieldProps {
 export type FormFieldsDataType = FormFieldProps[];
 
 export interface FormFieldsDataProps {
-  children: (formFields: any) => ReactNode;
+  children: (formFields: FormFieldProps[]) => ReactNode;
 }
 
 // Custom Button:
@@ -76,6 +76,7 @@ export interface CustomButtonProps {
 export interface FormContextProps {
   formData: AllFormDataProps;
   setFormData: Dispatch<SetStateAction<any>>;
+  // setFormData: Dispatch<SetStateAction<AllFormDataProps>>;
   onHandleBack: () => void;
   onHandleNext: () => void;
   step: number;
