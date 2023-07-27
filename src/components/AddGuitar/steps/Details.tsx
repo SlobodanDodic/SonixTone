@@ -1,14 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useFormState } from "../FormContext";
-import type { FormDataProps } from "@/types";
+import type { AllFormDataProps } from "@/types";
 
 export function Details() {
   const { onHandleNext, setFormData, onHandleBack, formData } = useFormState();
-  const { register, handleSubmit } = useForm<FormDataProps>({
+  const { register, handleSubmit } = useForm<AllFormDataProps>({
     defaultValues: formData ?? {},
   });
 
-  const onHandleFormSubmit = (data: FormDataProps) => {
+  const onHandleFormSubmit = (data: AllFormDataProps) => {
     // setFormData((prev: any) => ({ ...prev, ...data }));
     setFormData(data);
     onHandleNext();
