@@ -22,7 +22,7 @@ export const topbarLinks = [
     icon: <AiFillPlusSquare style={linkStyle} />,
     title: "Post an Ad",
     description: "It'was mine!",
-    href: "/add",
+    href: "/add_guitar",
   },
   {
     icon: <FaArrowsSpin style={linkStyle} />,
