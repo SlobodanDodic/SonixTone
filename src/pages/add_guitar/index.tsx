@@ -5,7 +5,7 @@ import { Details } from "@/components/AddGuitar/steps/Details";
 import { Preview } from "@/components/AddGuitar/steps/Preview";
 // Auth
 import { type GetServerSidePropsContext } from "next";
-import { useAuth } from "@/utils/useAuth";
+import { getSession } from "next-auth/react";
 
 function ActiveStepFormComponent() {
   const { step } = useFormState();
@@ -41,8 +41,25 @@ export default function Home() {
 //   });
 // }
 
+// export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+//   const { session } = await useAuth(ctx);
+//   return {
+//     props: { session },
+//   };
+// }
+
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const { session } = await useAuth(ctx);
+  const session = await getSession(ctx);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { session },
   };
