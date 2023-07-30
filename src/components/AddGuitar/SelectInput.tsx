@@ -1,5 +1,5 @@
+import { useFormState } from "@/context/FormContext";
 import type { FormDataStepOneProps, SelectInputProps } from "@/types";
-import { useFormState } from "./FormContext";
 
 const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaultValue, register, options }) => {
   const { setFormData, formData } = useFormState();
@@ -7,15 +7,12 @@ const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaul
 
   const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = e.target.value;
-
-    // Create a new object to store the updated form data
     const updatedFormData: FormDataStepOneProps = { ...formData };
 
     // Reset all fields after the current inputId
     let reset = false;
     for (const key in updatedFormData) {
       if (reset) {
-        // Use type assertion to index the object using string key
         updatedFormData[key as keyof FormDataStepOneProps] = "";
       }
       if (key === inputId) {
@@ -23,7 +20,6 @@ const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaul
       }
     }
 
-    // Update the value for the current inputId
     updatedFormData[inputId] = newValue;
 
     setFormData(updatedFormData);

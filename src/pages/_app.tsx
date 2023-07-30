@@ -1,16 +1,15 @@
-import { FormProvider } from "@/components/AddGuitar/FormContext";
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
+import { type Session } from "next-auth";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { FormProvider } from "@/context/FormContext";
+import { SessionProvider, getSession } from "next-auth/react";
+import { Rosario } from "next/font/google";
 import { api } from "@/utils/api";
 import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
 import "@/styles/globals.css";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
-
-import { Rosario } from "next/font/google";
 const globalFont = Rosario({ subsets: ["latin"], display: "swap" });
 
 const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { session, ...pageProps } }) => {

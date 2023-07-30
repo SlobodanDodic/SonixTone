@@ -1,8 +1,11 @@
 "use client";
-import { useFormState } from "@/components/AddGuitar/FormContext";
+import { useFormState } from "@/context/FormContext";
 import { Brand } from "@/components/AddGuitar/steps/Brand";
 import { Details } from "@/components/AddGuitar/steps/Details";
 import { Preview } from "@/components/AddGuitar/steps/Preview";
+// Auth
+import { GetServerSidePropsContext } from "next";
+import { useAuth } from "@/utils/useAuth";
 
 function ActiveStepFormComponent() {
   const { step } = useFormState();
@@ -28,4 +31,12 @@ export default function Home() {
       </div>
     </main>
   );
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  return useAuth(ctx, ({ session }: any) => {
+    return {
+      props: { session },
+    };
+  });
 }

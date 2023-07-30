@@ -1,5 +1,5 @@
+import { useFormState } from "@/context/FormContext";
 import type { FormFieldsDataProps, FormFieldsDataType } from "@/types";
-import { useFormState } from "./FormContext";
 import { guitars, neck, pickupOptions } from "./data";
 
 const getPopularModelsByBrand = (brandName: string) => {

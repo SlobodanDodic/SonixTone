@@ -1,5 +1,6 @@
 import type { ChildrenProps, FormContextProps, AllFormDataProps } from "@/types";
 import { createContext, useContext, useState } from "react";
+// import { useSession } from "next-auth/react";
 
 export const initialData = {
   selectedBrand: "",
@@ -30,6 +31,7 @@ const FormContext = createContext<FormContextProps>({
 export function FormProvider({ children }: ChildrenProps) {
   const [formData, setFormData] = useState<AllFormDataProps>(initialData);
   const [step, setStep] = useState<number>(1);
+  // const { data: session, status } = useSession();
 
   function onHandleBack() {
     setStep((prev) => prev - 1);
