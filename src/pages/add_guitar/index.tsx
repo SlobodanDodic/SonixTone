@@ -4,7 +4,7 @@ import { Brand } from "@/components/AddGuitar/steps/Brand";
 import { Details } from "@/components/AddGuitar/steps/Details";
 import { Preview } from "@/components/AddGuitar/steps/Preview";
 // Auth
-import { GetServerSidePropsContext } from "next";
+import { type GetServerSidePropsContext } from "next";
 import { useAuth } from "@/utils/useAuth";
 
 function ActiveStepFormComponent() {
@@ -33,10 +33,17 @@ export default function Home() {
   );
 }
 
+// export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+//   return useAuth(ctx, ({ session }: any) => {
+//     return {
+//       props: { session },
+//     };
+//   });
+// }
+
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  return useAuth(ctx, ({ session }: any) => {
-    return {
-      props: { session },
-    };
-  });
+  const { session } = await useAuth(ctx);
+  return {
+    props: { session },
+  };
 }

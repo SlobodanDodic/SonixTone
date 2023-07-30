@@ -2,7 +2,7 @@ import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FormProvider } from "@/context/FormContext";
-import { SessionProvider, getSession } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 import { Rosario } from "next/font/google";
 import { api } from "@/utils/api";
 import Topbar from "@/components/Topbar";

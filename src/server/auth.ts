@@ -65,7 +65,6 @@ export async function isUserAuthenticated(ctx: {
 }) {
   try {
     const session = await getServerAuthSession(ctx);
-    console.log("auth session: " + session)
 
     return !!session?.user?.id;
   } catch (error) {
