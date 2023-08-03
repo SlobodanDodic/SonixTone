@@ -607,7 +607,7 @@ export const pickupOptions = [
   },
 ];
 
-export const condition = [
+export const conditions = [
   {
     id: 1,
     name: "Mint",

@@ -60,14 +60,6 @@ export const BrandFieldsData: React.FC<BrandFieldsDataProps> = ({ children }) =>
       options: pickupOptions.map((pickup) => ({ value: pickup.name, label: pickup.name })),
       dependencies: ["selectedFingerboard"],
     },
-    // {
-    //   title: "Pick condition",
-    //   label: `${selectedModel.toString()}'s condition`,
-    //   inputId: "selectedCondition",
-    //   defaultValue: "Select Condition",
-    //   options: condition.map((c) => ({ value: c.name, label: c.name })),
-    //   dependencies: ["selectedPickups"],
-    // },
   ];
 
   return <>{children(formFields)}</>;

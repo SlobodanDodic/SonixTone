@@ -55,6 +55,14 @@ export type BrandFieldsDataType = FormFieldProps[];
 export interface FormDataStepTwoProps {
   selectedCondition: string;
 }
+export interface DetailConditionsType {
+  key: number;
+  color: string;
+  title: string;
+  description: string;
+  selected: boolean;
+  onConditionSelect: (title: string) => void;
+}
 
 // Custom Button:
 export interface CustomButtonProps {
