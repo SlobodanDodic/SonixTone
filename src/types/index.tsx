@@ -9,7 +9,9 @@ export interface AllFormDataProps {
   selectedNeckWood: string;
   selectedFingerboard: string;
   selectedPickups: string;
-  email: string;
+
+  selectedCondition: string;
+
   password: string;
 }
 
@@ -27,7 +29,7 @@ export interface SelectInputProps {
   options: Option[];
 }
 
-// Component Brand & Component FormFieldsData::
+// Component Brand & Component BrandFieldsData::
 export interface FormDataStepOneProps {
   selectedBrand: string;
   selectedModel: string;
@@ -44,10 +46,15 @@ export interface FormFieldProps {
   options: Array<{ value: string; label: string }>;
   dependencies?: Array<keyof FormDataStepOneProps>;
 }
-export interface FormFieldsDataProps {
+export interface BrandFieldsDataProps {
   children: (formFields: FormFieldProps[]) => ReactNode;
 }
-export type FormFieldsDataType = FormFieldProps[];
+export type BrandFieldsDataType = FormFieldProps[];
+
+// Component Details:
+export interface FormDataStepTwoProps {
+  selectedCondition: string;
+}
 
 // Custom Button:
 export interface CustomButtonProps {

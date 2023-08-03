@@ -611,31 +611,25 @@ export const condition = [
   {
     id: 1,
     name: "Mint",
-    description:
-      "The guitar is in like-new condition with no visible signs of wear or damage. It appears as if it just came out of the factory.",
+    description: "Used, but in like-new condition.",
+    color: "text-green-600",
   },
   {
     id: 2,
-    name: "Excellent",
-    description:
-      "The guitar shows very minimal signs of wear and tear, such as slight surface scratches or tiny dings. It is well-maintained and looks almost new.",
+    name: "Good",
+    description: "Minimal signs of wear and tear.",
+    color: "text-yellow-400",
   },
   {
     id: 3,
-    name: "Good",
-    description:
-      "The guitar displays moderate signs of wear and tear, including visible scratches, dents, or minor finish wear. Despite these signs, it remains in good playing condition.",
+    name: "Fair",
+    description: "Noticeable wear and tear with scratches.",
+    color: "text-orange-400",
   },
   {
     id: 4,
-    name: "Fair",
-    description:
-      "The guitar exhibits significant wear and tear, with noticeable scratches, dents, finish wear, and other cosmetic issues. It may require some adjustments or repairs to ensure optimal playability.",
-  },
-  {
-    id: 5,
     name: "Poor",
-    description:
-      "The guitar is in poor condition, showing extensive wear and tear, significant cosmetic damage, and functional issues. It may have multiple scratches, dents, finish wear, and structural problems affecting playability and sound quality. This condition may require significant repairs and restoration to make it playable again.",
+    description: "Wear and tear with functional issues.",
+    color: "text-red-0",
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 import { useFormState } from "@/context/FormContext";
 import { Brand } from "@/components/AddGuitar/steps/Brand";
-import { Details } from "@/components/AddGuitar/steps/Details";
+import { Detail } from "@/components/AddGuitar/steps/Detail";
 import { Preview } from "@/components/AddGuitar/steps/Preview";
 
 function ActiveStepFormComponent() {
@@ -10,7 +10,7 @@ function ActiveStepFormComponent() {
     case 1:
       return <Brand />;
     case 2:
-      return <Details />;
+      return <Detail />;
     case 3:
       return <Preview />;
     default:

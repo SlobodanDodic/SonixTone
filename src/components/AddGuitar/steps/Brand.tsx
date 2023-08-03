@@ -5,7 +5,7 @@ import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import SelectInput from "../SelectInput";
 import StepIcons from "../StepIcons";
 import type { FormDataStepOneProps, FormFieldProps } from "@/types";
-import { FormFieldsData } from "../FormFieldsData";
+import { BrandFieldsData } from "./BrandFieldsData";
 
 export function Brand() {
   const { onHandleNext, setFormData, formData } = useFormState();
@@ -24,7 +24,7 @@ export function Brand() {
 
   return (
     <div className="pt-12">
-      <FormFieldsData>
+      <BrandFieldsData>
         {(formFields: FormFieldProps[]) => (
           <form className="flex flex-col font-bold" onSubmit={handleSubmit(onSubmit)}>
             {formFields?.map((field: FormFieldProps, index: number) => {
@@ -53,7 +53,7 @@ export function Brand() {
             </div>
 
             {formData?.selectedPickups && (
-              <div className="z-50 mt-9 flex justify-center">
+              <div className="z-50 flex justify-center bg-white py-10">
                 <CustomButton type="submit" className="flex rounded-full px-7">
                   <div className="flex items-center justify-center text-xs">
                     Next
@@ -64,7 +64,7 @@ export function Brand() {
             )}
           </form>
         )}
-      </FormFieldsData>
+      </BrandFieldsData>
     </div>
   );
 }

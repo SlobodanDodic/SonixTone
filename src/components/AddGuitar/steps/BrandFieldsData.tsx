@@ -1,18 +1,18 @@
 import { useFormState } from "@/context/FormContext";
-import type { FormFieldsDataProps, FormFieldsDataType } from "@/types";
-import { guitars, neck, pickupOptions } from "./data";
+import type { BrandFieldsDataProps, BrandFieldsDataType } from "@/types";
+import { guitars, neck, pickupOptions } from "../data";
 
 const getPopularModelsByBrand = (brandName: string) => {
   const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
   return selectedGuitar ? selectedGuitar.popularModels.map((model) => model.name) : [];
 };
 
-export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
+export const BrandFieldsData: React.FC<BrandFieldsDataProps> = ({ children }) => {
   const { formData } = useFormState();
   const selectedBrand = formData?.selectedBrand ?? "";
   const selectedModel = formData?.selectedModel ?? "";
 
-  const formFields: FormFieldsDataType = [
+  const formFields: BrandFieldsDataType = [
     {
       title: "Pick Brand",
       label: `One of ${guitars.length} guitar brands`,
@@ -60,6 +60,14 @@ export const FormFieldsData: React.FC<FormFieldsDataProps> = ({ children }) => {
       options: pickupOptions.map((pickup) => ({ value: pickup.name, label: pickup.name })),
       dependencies: ["selectedFingerboard"],
     },
+    // {
+    //   title: "Pick condition",
+    //   label: `${selectedModel.toString()}'s condition`,
+    //   inputId: "selectedCondition",
+    //   defaultValue: "Select Condition",
+    //   options: condition.map((c) => ({ value: c.name, label: c.name })),
+    //   dependencies: ["selectedPickups"],
+    // },
   ];
 
   return <>{children(formFields)}</>;

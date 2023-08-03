@@ -10,7 +10,7 @@ export const initialData = {
   selectedFingerboard: "",
   selectedPickups: "",
 
-  email: "",
+  selectedCondition: "",
   password: "",
 };
 
