@@ -9,8 +9,12 @@ export const initialData = {
   selectedNeckWood: "",
   selectedFingerboard: "",
   selectedPickups: "",
-
+  // FormDataStepTwoProps
   selectedCondition: "",
+  isFixed: false,
+  isTradeable: false,
+  price: "",
+  // FormDataStepThreeProps
   password: "",
 };
 

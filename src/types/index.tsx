@@ -3,15 +3,19 @@ import type { UseFormRegister } from "react-hook-form";
 
 // All inputs in form:
 export interface AllFormDataProps {
+  // FormDataStepOneProps
   selectedBrand: string;
   selectedModel: string;
   selectedNeckShape: string;
   selectedNeckWood: string;
   selectedFingerboard: string;
   selectedPickups: string;
-
+  // FormDataStepTwoProps
   selectedCondition: string;
-
+  isFixed: boolean;
+  isTradeable: boolean;
+  price: string;
+  // FormDataStepThreeProps
   password: string;
 }
 
@@ -54,6 +58,9 @@ export type BrandFieldsDataType = FormFieldProps[];
 // Component Details:
 export interface FormDataStepTwoProps {
   selectedCondition: string;
+  isFixed: boolean;
+  isTradeable: boolean;
+  price: string;
 }
 export interface DetailConditionsType {
   key: number;
@@ -62,6 +69,20 @@ export interface DetailConditionsType {
   description: string;
   selected: boolean;
   onConditionSelect: (title: string) => void;
+}
+export interface DetailPriceType {
+  isFixed: boolean;
+  isTradeable: boolean;
+  price: string;
+  handlePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleIsFixedPrice: () => void;
+  handleIsTradeable: () => void;
+}
+export interface DetailStateType {
+  selectedCondition: string;
+  isFixed: boolean;
+  isTradeable: boolean;
+  price: string;
 }
 
 // Custom Button:

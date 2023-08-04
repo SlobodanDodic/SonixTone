@@ -15,6 +15,8 @@ export function Preview() {
     setCreated(true);
   };
 
+  console.log(formData);
+
   return isCreated ? (
     <div>
       <p>Account created successfully</p>

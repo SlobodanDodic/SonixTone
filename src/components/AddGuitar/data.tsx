@@ -385,6 +385,11 @@ export const neck = {
       description:
         "Compound radius necks have a curved fingerboard with a changing radius. It's flatter near the nut for easy chord playing and gradually becomes more rounded towards the higher frets for comfortable lead playing.",
     },
+    {
+      id: 7,
+      name: "Custom",
+      description: "More in description",
+    },
   ],
   woods: [
     {
@@ -435,6 +440,11 @@ export const neck = {
       description:
         "Wenge is a dense and durable wood known for its dark appearance and prominent grain patterns. It provides a clear, articulate tone and excellent sustain.",
     },
+    {
+      id: 9,
+      name: "Custom",
+      description: "More in description",
+    },
   ],
   fingerboards: [
     {
@@ -472,6 +482,11 @@ export const neck = {
       name: "Wenge",
       description:
         "Wenge is a dense and durable wood, providing a clear and articulate tone with good sustain. It has a distinctive appearance with dark color and prominent grain patterns.",
+    },
+    {
+      id: 7,
+      name: "Custom",
+      description: "More in description",
     },
   ],
 };
@@ -611,25 +626,31 @@ export const conditions = [
   {
     id: 1,
     name: "Mint",
-    description: "Used, but in like-new condition.",
+    description: "Like new, flawless condition.",
     color: "text-green-600",
   },
   {
     id: 2,
-    name: "Good",
-    description: "Minimal signs of wear and tear.",
-    color: "text-yellow-400",
+    name: "Superb",
+    description: "Very little wear, looks and plays great.",
+    color: "text-green-400",
   },
   {
     id: 3,
-    name: "Fair",
-    description: "Noticeable wear and tear with scratches.",
-    color: "text-orange-400",
+    name: "Good",
+    description: "Moderate wear, still plays well.",
+    color: "text-yellow-400",
   },
   {
     id: 4,
-    name: "Poor",
-    description: "Wear and tear with functional issues.",
+    name: "Fair",
+    description: "Significant wear, needs attention.",
+    color: "text-orange-400",
+  },
+  {
+    id: 5,
+    name: "Faulty",
+    description: "Severely damaged, needs restoration.",
     color: "text-red-0",
   },
 ];
