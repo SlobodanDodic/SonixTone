@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import { useFormState } from "@/context/FormContext";
 import CustomButton from "@/components/Common/CustomButton";
 import { IoArrowRedoCircleSharp } from "react-icons/io5";
-import SelectInput from "../SelectInput";
-import StepIcons from "../StepIcons";
+import SelectInput from "./SelectInput";
+import StepIcons from "./StepIcons";
 import type { FormDataStepOneProps, FormFieldProps } from "@/types";
 import { BrandFieldsData } from "./BrandFieldsData";
 

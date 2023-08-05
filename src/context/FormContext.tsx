@@ -14,6 +14,7 @@ export const initialData = {
   isFixed: false,
   isTradeable: false,
   price: "",
+  editor: "",
   // FormDataStepThreeProps
   password: "",
 };
@@ -44,6 +45,8 @@ export function FormProvider({ children }: ChildrenProps) {
   function onHandleNext() {
     setStep((prev) => prev + 1);
   }
+
+  console.log(formData);
 
   return <FormContext.Provider value={{ formData, setFormData, onHandleBack, onHandleNext, step }}>{children}</FormContext.Provider>;
 }

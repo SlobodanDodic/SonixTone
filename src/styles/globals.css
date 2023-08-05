@@ -13,3 +13,32 @@
 html {
   font-family: "Rosario", sans-serif;
 }
+
+/* Quill WYSIWYG Editor */
+button > svg {
+  height: 14px !important;
+}
+
+.ql-picker-label {
+  font-size: 11px !important;
+}
+
+.ql-snow .ql-picker.ql-font {
+  width: 90px !important;
+}
+
+.ql-snow {
+  border: none !important;
+  position: relative;
+  border-bottom: 1px solid transparent;
+}
+
+.ql-snow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(90deg, #ffffff00 0%, #7f1d1d 50%, #ffffff00 100%);
+}

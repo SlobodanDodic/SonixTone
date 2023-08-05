@@ -5,10 +5,11 @@ import CustomButton from "@/components/Common/CustomButton";
 import { IoArrowRedoCircleSharp, IoArrowUndoCircleSharp } from "react-icons/io5";
 import DetailPrice from "./DetailPrice";
 import type { DetailStateType } from "@/types";
+import DetailEditor from "./DetailEditor";
 
 export function Detail() {
   const { onHandleNext, setFormData, onHandleBack, formData } = useFormState();
-  const { selectedCondition = "", isFixed = false, isTradeable = false, price = "" } = formData || {};
+  const { selectedCondition, isFixed, isTradeable, price, editor } = formData || {};
 
   const handleChange = (key: keyof DetailStateType, value: string | boolean) => {
     setFormData((prevFormData: DetailStateType) => ({
@@ -19,6 +20,10 @@ export function Detail() {
 
   const handleConditionSelect = (title: string) => {
     handleChange("selectedCondition", title);
+  };
+
+  const handleEditor = (text: string) => {
+    handleChange("editor", text);
   };
 
   return (
@@ -51,6 +56,8 @@ export function Detail() {
           handleIsTradeable={() => handleChange("isTradeable", !isTradeable)}
         />
 
+        <DetailEditor editor={editor} setEditor={handleEditor} />
+
         <div className="mt-7 flex justify-center">
           <CustomButton type="button" onClick={onHandleBack} className="mr-2 flex rounded-full px-7">
             <div className="flex items-center justify-center text-xs">
@@ -58,12 +65,24 @@ export function Detail() {
               <IoArrowUndoCircleSharp className="ml-1 h-4 w-4" />
             </div>
           </CustomButton>
-          <CustomButton type="submit" onClick={onHandleNext} className="flex rounded-full px-7">
-            <div className="flex items-center justify-center text-xs">
-              Next
-              <IoArrowRedoCircleSharp className="ml-1 h-4 w-4" />
-            </div>
-          </CustomButton>
+          <div className="group relative">
+            <CustomButton
+              type="button"
+              onClick={onHandleNext}
+              className="flex rounded-full px-7"
+              disabled={!formData.price || !formData.selectedCondition}
+            >
+              <div className="flex items-center justify-center text-xs">
+                Next
+                <IoArrowRedoCircleSharp className="ml-1 h-4 w-4" />
+              </div>
+            </CustomButton>
+            {(!formData.price || !formData.selectedCondition) && (
+              <div className="tooltip absolute -bottom-10 left-1/2 hidden w-full -translate-x-1/2 transform rounded bg-gray-500 p-1 text-center text-[10px] text-white transition-all group-hover:block">
+                Price or condition cannot be empty!
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </form>

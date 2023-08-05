@@ -20,6 +20,7 @@ export default function DetailPrice({ isFixed, isTradeable, price, handlePrice, 
           id="price"
           className="mx-1 block w-20 border border-gray-400 bg-gray-50 p-2 text-center text-sm font-semibold text-gray-600"
           placeholder="price"
+          required
         />
         <select
           id="currency"

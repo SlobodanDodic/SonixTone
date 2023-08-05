@@ -15,6 +15,7 @@ export interface AllFormDataProps {
   isFixed: boolean;
   isTradeable: boolean;
   price: string;
+  editor: string;
   // FormDataStepThreeProps
   password: string;
 }
@@ -83,6 +84,11 @@ export interface DetailStateType {
   isFixed: boolean;
   isTradeable: boolean;
   price: string;
+  editor: string;
+}
+export interface DetailQuillType {
+  editor: string;
+  setEditor: (text: string) => void;
 }
 
 // Custom Button:
