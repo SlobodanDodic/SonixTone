@@ -4,21 +4,21 @@ import CustomButton from "@/components/Common/CustomButton";
 import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import SelectInput from "./SelectInput";
 import StepIcons from "./StepIcons";
-import type { FormDataStepOneProps, FormFieldProps } from "@/types";
+import type { BrandFormProps, FormFieldProps } from "@/types";
 import { BrandFieldsData } from "./BrandFieldsData";
 
 export function Brand() {
   const { onHandleNext, setFormData, formData } = useFormState();
-  const { register, handleSubmit } = useForm<FormDataStepOneProps>({
+  const { register, handleSubmit } = useForm<BrandFormProps>({
     defaultValues: formData ?? {},
   });
 
-  const onHandleFormSubmit = (data: FormDataStepOneProps) => {
+  const onHandleFormSubmit = (data: BrandFormProps) => {
     setFormData(data);
     onHandleNext();
   };
 
-  const onSubmit = (data: FormDataStepOneProps) => {
+  const onSubmit = (data: BrandFormProps) => {
     onHandleFormSubmit(data);
   };
 

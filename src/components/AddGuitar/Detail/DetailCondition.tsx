@@ -1,4 +1,4 @@
-import { DetailConditionsType } from "@/types";
+import type { DetailConditionsType } from "@/types";
 import { BiTachometer } from "react-icons/bi";
 
 export default function DetailCondition({ color, title, description, selected, onConditionSelect }: DetailConditionsType) {

@@ -1,5 +1,5 @@
 import { useFormState } from "@/context/FormContext";
-import type { FormDataStepOneProps, SelectInputProps } from "@/types";
+import type { BrandFormProps, SelectInputProps } from "@/types";
 
 const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaultValue, register, options }) => {
   const { setFormData, formData } = useFormState();
@@ -7,13 +7,13 @@ const SelectInput: React.FC<SelectInputProps> = ({ title, label, inputId, defaul
 
   const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = e.target.value;
-    const updatedFormData: FormDataStepOneProps = { ...formData };
+    const updatedFormData: BrandFormProps = { ...formData };
 
     // Reset all fields after the current inputId
     let reset = false;
     for (const key in updatedFormData) {
       if (reset) {
-        updatedFormData[key as keyof FormDataStepOneProps] = "";
+        updatedFormData[key as keyof BrandFormProps] = "";
       }
       if (key === inputId) {
         reset = true;

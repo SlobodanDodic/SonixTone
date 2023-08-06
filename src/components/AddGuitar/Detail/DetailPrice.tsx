@@ -1,6 +1,22 @@
 import type { DetailPriceType } from "@/types";
 
-export default function DetailPrice({ isFixed, isTradeable, price, handlePrice, handleIsFixedPrice, handleIsTradeable }: DetailPriceType) {
+export default function DetailPrice({
+  isFixed,
+  isTradeable,
+  price,
+  currency,
+  handlePrice,
+  handleCurrency,
+  handleIsFixedPrice,
+  handleIsTradeable,
+}: DetailPriceType) {
+  const handleInputKeyDown = (e: { key: string; preventDefault: () => void }) => {
+    const regex = /^[0-9\b]+$/;
+    if (!regex.test(e.key) && e.key !== "Backspace") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="my-5">
       <label htmlFor="price" className="mx-1 mb-3 block text-center text-sm text-gray-600">
@@ -20,14 +36,16 @@ export default function DetailPrice({ isFixed, isTradeable, price, handlePrice, 
           id="price"
           className="mx-1 block w-20 border border-gray-400 bg-gray-50 p-2 text-center text-sm font-semibold text-gray-600"
           placeholder="price"
-          required
+          onKeyDown={handleInputKeyDown}
         />
         <select
           id="currency"
           className="flex w-12 items-center justify-center rounded-r border border-gray-400 bg-gray-600 pl-3 text-xs text-gray-200"
+          value={currency}
+          onChange={handleCurrency}
         >
-          <option value="USD">$</option>
-          <option value="EUR">€</option>
+          <option value="$">$</option>
+          <option value="€">€</option>
         </select>
       </div>
 

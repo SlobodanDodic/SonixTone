@@ -9,13 +9,15 @@ export const initialData = {
   selectedNeckWood: "",
   selectedFingerboard: "",
   selectedPickups: "",
-  // FormDataStepTwoProps
+  // DetailFormProps
   selectedCondition: "",
   isFixed: false,
   isTradeable: false,
   price: "",
+  currency: "€",
   editor: "",
-  // FormDataStepThreeProps
+  photos: [],
+  // PreviewFormProps
   password: "",
 };
 
@@ -45,8 +47,6 @@ export function FormProvider({ children }: ChildrenProps) {
   function onHandleNext() {
     setStep((prev) => prev + 1);
   }
-
-  console.log(formData);
 
   return <FormContext.Provider value={{ formData, setFormData, onHandleBack, onHandleNext, step }}>{children}</FormContext.Provider>;
 }
