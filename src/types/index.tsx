@@ -1,8 +1,9 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { UseFormRegister } from "react-hook-form";
 
-// Component
-// FormContext:
+//
+// context/FormContext:
+//
 export interface AllFormDataProps {
   // BrandFormProps
   selectedBrand: string;
@@ -19,8 +20,6 @@ export interface AllFormDataProps {
   currency: string;
   editor: string;
   photos: string[];
-  // PreviewFormProps
-  password: string;
 }
 
 export interface FormContextProps {
@@ -35,8 +34,9 @@ export interface ChildrenProps {
   children: ReactNode;
 }
 
-// Component
-// Brand:
+//
+// components/AddGuitar/Brand:
+//
 export interface BrandFormProps {
   selectedBrand: string;
   selectedModel: string;
@@ -82,15 +82,9 @@ export interface SelectInputProps {
   options: Option[];
 }
 
-// Component
-// Details:
-
-// export interface DetailFormProps {
-//   selectedCondition: string;
-//   isFixed: boolean;
-//   isTradeable: boolean;
-//   price: string;
-// }
+//
+// components/AddGuitar/Detail:
+//
 export interface DetailConditionsType {
   key: number;
   color: string;
@@ -126,8 +120,9 @@ export interface DetailQuillType {
   setEditor: (text: string) => void;
 }
 
-// Component
-// Custom:
+//
+// components/common:
+//
 export interface CustomButtonProps {
   onClick?: () => void;
   disabled?: boolean;

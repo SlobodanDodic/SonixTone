@@ -1,8 +1,8 @@
 "use client";
 import { useFormState } from "@/context/FormContext";
-import { Brand } from "@/components/AddGuitar/Brand/Brand";
-import { Detail } from "@/components/AddGuitar/Detail/Detail";
-import { Preview } from "@/components/AddGuitar/Preview/Preview";
+import { Brand } from "@/components/AddGuitar/Brand";
+import { Detail } from "@/components/AddGuitar/Detail";
+import { Preview } from "@/components/AddGuitar/Preview";
 
 function ActiveStepFormComponent() {
   const { step } = useFormState();

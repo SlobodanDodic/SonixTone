@@ -18,7 +18,6 @@ export const initialData = {
   editor: "",
   photos: [],
   // PreviewFormProps
-  password: "",
 };
 
 const FormContext = createContext<FormContextProps>({

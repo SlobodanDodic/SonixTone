@@ -54,7 +54,7 @@ export function Brand() {
 
             {formData?.selectedPickups && (
               <div className="z-50 flex justify-center bg-white py-10">
-                <CustomButton type="submit" className="flex rounded-full px-7">
+                <CustomButton type="submit" className="flex w-28 justify-center rounded-full px-7">
                   <div className="flex items-center justify-center text-xs">
                     Next
                     <IoArrowRedoCircleSharp className="ml-1 h-4 w-4" />

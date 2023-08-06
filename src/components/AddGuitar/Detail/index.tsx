@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useFormState } from "@/context/FormContext";
 import CustomButton from "@/components/Common/CustomButton";
 import type { DetailStateType } from "@/types";
-import { conditions } from "../data";
 import { IoArrowRedoCircleSharp, IoArrowUndoCircleSharp } from "react-icons/io5";
 import { BiCloudUpload } from "react-icons/bi";
 import { FaImages } from "react-icons/fa";
@@ -10,6 +9,7 @@ import Spinner from "@/components/Spinner";
 import DetailCondition from "./DetailCondition";
 import DetailPrice from "./DetailPrice";
 import DetailEditor from "./DetailEditor";
+import { conditions } from "@/components/Data";
 
 export function Detail() {
   const { onHandleNext, setFormData, onHandleBack, formData } = useFormState();
@@ -113,7 +113,7 @@ export function Detail() {
         </div>
 
         <div className="mt-7 flex justify-center">
-          <CustomButton type="button" onClick={onHandleBack} className="mr-2 flex rounded-full px-7">
+          <CustomButton type="button" onClick={onHandleBack} className="mr-1 flex w-28 justify-center rounded-full px-7">
             <div className="flex items-center justify-center text-xs">
               Back
               <IoArrowUndoCircleSharp className="ml-1 h-4 w-4" />
@@ -123,7 +123,7 @@ export function Detail() {
             <CustomButton
               type="button"
               onClick={onHandleNext}
-              className="flex rounded-full px-7"
+              className="ml-1 flex w-28 justify-center rounded-full px-7"
               disabled={!formData.price || !formData.selectedCondition}
             >
               <div className="flex items-center justify-center text-xs">

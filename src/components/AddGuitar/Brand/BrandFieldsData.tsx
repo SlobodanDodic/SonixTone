@@ -1,6 +1,6 @@
 import { useFormState } from "@/context/FormContext";
 import type { BrandFieldsDataProps, BrandFieldsDataType } from "@/types";
-import { guitars, neck, pickupOptions } from "../data";
+import { guitars, neck, pickupOptions } from "@/components/Data";
 
 const getPopularModelsByBrand = (brandName: string) => {
   const selectedGuitar = guitars.find((guitar) => guitar.name === brandName);
