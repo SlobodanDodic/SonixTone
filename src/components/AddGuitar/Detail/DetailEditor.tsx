@@ -9,15 +9,16 @@ const QuillNoSSRWrapper = dynamic(() => import("react-quill"), {
 
 const modules = {
   toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ header: "2" }],
     ["bold", "italic", "underline"],
+    [{ color: [] }, { background: [] }],
     [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
     ["link", "image", "video"],
   ],
   clipboard: { matchVisual: false },
 };
 
-const formats = ["header", "font", "bold", "italic", "underline", "list", "bullet", "indent", "link", "image", "video"];
+const formats = ["header", "bold", "italic", "underline", "color", "background", "ordered", "bullet", "indent", "link", "image", "video"];
 
 export default function DetailEditor({ editor, setEditor }: DetailQuillType) {
   const handleChange = (text: string) => {
@@ -28,7 +29,6 @@ export default function DetailEditor({ editor, setEditor }: DetailQuillType) {
     <QuillNoSSRWrapper
       modules={modules}
       formats={formats}
-      theme="snow"
       placeholder="Add description..."
       value={editor}
       onChange={handleChange}

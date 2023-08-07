@@ -24,7 +24,7 @@ export default function BasicInfo() {
   const backgroundColor = getBackgroundColor(selectedCondition);
 
   return (
-    <div className="flex w-screen max-w-xl flex-col text-xs sm:flex-row">
+    <div className="mb-7 flex w-screen max-w-xl flex-col text-xs sm:flex-row">
       {/* LEFT */}
       <div className="flex w-screen flex-col items-start border-b border-gray-200 px-4 py-2 sm:w-1/2 sm:items-end sm:border-none">
         <h1 className="pb-2 text-xl font-semibold">
@@ -43,11 +43,11 @@ export default function BasicInfo() {
           {selectedCondition} condition
         </span>
 
-        <div className="mt-2 pt-[2px] text-start text-gray-500 sm:text-end">
+        <div className="mt-2 pt-[2px] text-start text-gray-600 sm:text-end">
           <p>
             Brand {formData?.selectedBrand} was founded in {selectedGuitarBrand?.country} by {selectedGuitarBrand?.founder} in{" "}
             {selectedGuitarBrand?.established}. More info about {formData?.selectedBrand} you can find on their website:{" "}
-            <a href={selectedGuitarBrand?.website} target="_blank" className="font-bold text-gray-600">
+            <a href={selectedGuitarBrand?.website} target="_blank" className="font-bold text-blue-700">
               {selectedGuitarBrand?.website}
             </a>
           </p>
@@ -58,11 +58,6 @@ export default function BasicInfo() {
         <h1 className="pb-2 text-xl font-semibold">{sessionData?.user?.name}</h1>
         <h1 className="text pb-2 font-semibold">{sessionData?.user?.email}</h1>
         <Image src={sessionData?.user?.image ?? "/avatar.png"} alt="Profile" className="rounded-full" width={70} height={70} />
-
-        {/* <div className="flex">
-          <div className="flex pr-3">L</div>
-          <div className="flex pr-3">R</div>
-        </div> */}
       </div>
     </div>
   );
